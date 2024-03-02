@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://s831a7htjlmm"]
+[gd_scene load_steps=7 format=3 uid="uid://s831a7htjlmm"]
 
 [ext_resource type="Texture2D" uid="uid://dca16w7d1h2cy" path="res://Art/Dungeon Pack/tilemap_packed.png" id="1_1lsbt"]
 [ext_resource type="PackedScene" uid="uid://yi5w2jbg0rcc" path="res://Player/player.tscn" id="1_nv7fc"]
+[ext_resource type="PackedScene" uid="uid://ctmvabrx1mvte" path="res://Pickups/pickup.tscn" id="3_6f503"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_efbss"]
 texture = ExtResource("1_1lsbt")
@@ -484,9 +485,14 @@ gravity_scale = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("RectangleShape2D_eqc41")
 
+[node name="Area2D" type="Area2D" parent="RigidBody2D"]
+
 [node name="TilemapPacked" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(234, 186)
 texture = ExtResource("1_1lsbt")
+
+[node name="Pickup" parent="." instance=ExtResource("3_6f503")]
+position = Vector2(412, 239)
 
 [editable path="Player"]

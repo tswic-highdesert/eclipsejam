@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const DUST = preload("res://Effects/particles.tscn")
+#const DUST = preload("res://Effects/dust.tscn")
 
 var playerStats = Global.PlayerStats
 
@@ -51,6 +51,6 @@ func flip():
 	
 	
 func spawn_ground_effects():
-	Global.instance_scene_on_main(DUST, $GroundMarker.global_position)
+	#Global.instance_scene_on_main(DUST, $GroundMarker.global_position)
 	SoundFX.play("grass_step")
 

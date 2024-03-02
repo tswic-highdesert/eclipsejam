@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://qd8j81jghy5l"]
+
+[ext_resource type="Script" path="res://Effects/particles.gd" id="1_mdxpp"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gigvh"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_gigvh")
+lifetime = 1.5
+script = ExtResource("1_mdxpp")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

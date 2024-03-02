@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cj4gy7jqsyfug"]
 
-[ext_resource type="Script" path="res://Effects/particles.gd" id="1_pamfx"]
+[ext_resource type="Script" path="res://Effects/particles.gd" id="1_dg7ok"]
 
 [sub_resource type="Gradient" id="Gradient_8xhba"]
 offsets = PackedFloat32Array(0, 0.717507)
@@ -47,10 +47,10 @@ process_material = SubResource("ParticleProcessMaterial_m6fqp")
 lifetime = 1.5
 one_shot = true
 explosiveness = 1.0
-script = ExtResource("1_pamfx")
+script = ExtResource("1_dg7ok")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.1
+wait_time = 3.0
 one_shot = true
 autostart = true
 

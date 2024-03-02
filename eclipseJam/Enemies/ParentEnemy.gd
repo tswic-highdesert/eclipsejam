@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 var motion = Vector2.ZERO
 
-@export var normalSpeed = 1
-@export var aggroSpeed = 15
+@export var normalSpeed = 5
+@export var aggroSpeed = 20
 
 #@onready var aggroRadius = $aggroRadius.transform
 

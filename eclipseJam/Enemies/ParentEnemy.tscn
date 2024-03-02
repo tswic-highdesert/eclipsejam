@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb76lh2hgpb3r"]
+
+[ext_resource type="Script" path="res://Enemies/ParentEnemy.gd" id="1_bnhyf"]
+[ext_resource type="Texture2D" uid="uid://cr1wdo23n7qcc" path="res://icon.svg" id="2_2cd25"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0f8g"]
+size = Vector2(55, 54)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vheqc"]
+
+[node name="ParentEnemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_bnhyf")
+normalSpeed = 5
+aggroSpeed = 25
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.421875, 0.421875)
+texture = ExtResource("2_2cd25")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_l0f8g")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="aggroRadius" type="Area2D" parent="."]
+scale = Vector2(21, 21)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="aggroRadius"]
+shape = SubResource("CircleShape2D_vheqc")
+
+[connection signal="body_entered" from="aggroRadius" to="." method="_on_aggro_radius_body_entered"]

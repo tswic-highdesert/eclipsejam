@@ -12,6 +12,9 @@ var scale_speed = 9
 
 var mousePos = Vector2()
 
+func _ready():
+	Global.player = self
+
 func _physics_process(delta):
 	
 	flip()

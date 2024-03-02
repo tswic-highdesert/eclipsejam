@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnwmm5tamwbat"]
+
+[ext_resource type="PackedScene" uid="uid://bb76lh2hgpb3r" path="res://Enemies/ParentEnemy.tscn" id="1_yeb8u"]
+[ext_resource type="Script" path="res://Enemies/ranged.gd" id="2_ikvlb"]
+
+[node name="ranged" instance=ExtResource("1_yeb8u")]
+script = ExtResource("2_ikvlb")

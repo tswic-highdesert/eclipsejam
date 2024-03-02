@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctmvabrx1mvte"]
+
+[ext_resource type="Script" path="res://Pickups/PickupTest.gd" id="1_lksnl"]
+[ext_resource type="Texture2D" uid="uid://cr1wdo23n7qcc" path="res://icon.svg" id="2_d4uuj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ciyi2"]
+radius = 69.3758
+
+[node name="Pickup" type="Area2D"]
+script = ExtResource("1_lksnl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_d4uuj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ciyi2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

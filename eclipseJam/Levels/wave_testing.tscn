@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://4662to7nqrax"]
+[gd_scene load_steps=4 format=3 uid="uid://4662to7nqrax"]
 
 [ext_resource type="Script" path="res://Levels/ArenaManager.gd" id="1_lbqpw"]
 [ext_resource type="PackedScene" uid="uid://yi5w2jbg0rcc" path="res://Player/player.tscn" id="2_leqf1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ribce"]
+size = Vector2(170.5, 349.5)
 
 [node name="Wave Level" type="Node2D"]
 script = ExtResource("1_lbqpw")
@@ -18,5 +21,25 @@ position = Vector2(508, 127)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
+
+[node name="Spawn Area 1" type="Area2D" parent="."]
+position = Vector2(312, 132)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawn Area 1"]
+position = Vector2(-4, -2)
+shape = SubResource("RectangleShape2D_ribce")
+
+[node name="Spawn Area 2" type="Area2D" parent="."]
+position = Vector2(947, 129)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawn Area 2"]
+position = Vector2(-2, 1)
+shape = SubResource("RectangleShape2D_ribce")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="Player"]

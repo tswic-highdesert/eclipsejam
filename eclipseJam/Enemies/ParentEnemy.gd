@@ -24,5 +24,5 @@ func flip():
 	else:
 		$Sprite2D.set_flip_h(false)
 
-#func _on_aggro_radius_body_entered(body):
-	#currentSpeed = aggroSpeed
+func _on_aggro_radius_body_entered(body):
+	currentSpeed = aggroSpeed

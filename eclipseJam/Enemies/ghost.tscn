@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cxbe0sdohpp3a" path="res://Enemies/melee_parent.tscn" id="1_4vc4x"]
 
 [node name="Ghost" instance=ExtResource("1_4vc4x")]
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(1, 0.192157, 0, 1)

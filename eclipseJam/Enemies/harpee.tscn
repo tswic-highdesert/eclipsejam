@@ -5,3 +5,4 @@
 
 [node name="Harpee" instance=ExtResource("1_hj3sd")]
 script = ExtResource("2_qk8p5")
+normalSpeed = 35

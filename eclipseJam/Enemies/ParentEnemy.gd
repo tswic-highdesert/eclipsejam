@@ -1,14 +1,15 @@
 extends CharacterBody2D
 
-var motion = Vector2.ZERO
 
-@export var normalSpeed = 7
-@export var aggroSpeed = 20
+@export var normalSpeed = 35
+@export var aggroSpeed = 55
 
 #@onready var aggroRadius = $aggroRadius.transform
 
+var motion = Vector2.ZERO
 var currentSpeed = normalSpeed
 
+signal enemy_destroyed
 
 func _physics_process(delta):
 	chase_player(delta)
@@ -26,3 +27,8 @@ func flip():
 
 func _on_aggro_radius_body_entered(body):
 	currentSpeed = aggroSpeed
+	_on_enemy_destroyed()
+
+func _on_enemy_destroyed():
+	emit_signal("enemy_destroyed")
+	queue_free()  # Destroy the enemy instance

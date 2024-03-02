@@ -18,46 +18,25 @@ const MINOTAUR = preload("res://Enemies/minotaur.tscn")
 @onready var spawnArea1 = $"Spawn Area 1"
 @onready var spawnArea2 = $"Spawn Area 2"
 
-var WaveOne = [
-	GHOST
-]
+var WaveOne = {"enemies": [GHOST], "maxEnemies": 5}
+var WaveTwo = {"enemies": [GHOST, HARPEE], "maxEnemies": 35}
+var WaveThree = {"enemies": [GHOST, HARPEE, CYCLOPS], "maxEnemies": 55}
+var WaveFour = {"enemies": [GHOST, HARPEE, CYCLOPS, MINOTAUR], "maxEnemies": 75}
+var WaveFive = {"enemies": [GHOST, HARPEE, CYCLOPS, MINOTAUR, MEDUSA], "maxEnemies": 105}
 
-var WaveTwo = [
-	GHOST,
-	HARPEE
-]
-
-var WaveThree = [
-	GHOST,
-	HARPEE,
-	CYCLOPS
-]
-
-var WaveFour = [
-	GHOST,
-	HARPEE,
-	CYCLOPS,
-	MINOTAUR
-]
-
-var WaveFive = [
-	GHOST,
-	HARPEE,
-	CYCLOPS,
-	MINOTAUR,
-	MEDUSA
-]
-
-var enemyLineUp = [
-	
-]
+var currentWave = {}
+var enemyLineUp = []
+var enemiesSpawnedCount = 0  # Counter for enemies spawned in the current wave
+var enemiesAlive = []
 
 func _ready():
-	createEnemyLineUp(WaveTwo)
+	setWave(WaveOne)
 
-func createEnemyLineUp(wave):
-	enemyLineUp = []
-	enemyLineUp = wave
+func setWave(wave):
+	currentWave = wave
+	enemyLineUp = currentWave["enemies"]
+	enemiesSpawnedCount = 0  # Resets the counter when setting a new wave
+	enemiesAlive = []
 
 func spawn_enemies():
 	var selectedSpawnArea = chooseSpawnArea()
@@ -69,10 +48,15 @@ func spawn_enemies():
 	positionInArea.x = randf() * size.x - (size.x / 2) + center.x
 	positionInArea.y = randf() * size.y - (size.y / 2) + center.y
 	
-	enemyLineUp.shuffle()
-	var enemyThatSpawns = enemyLineUp[0]
-	
-	Global.instance_scene_on_main(enemyThatSpawns, positionInArea)
+	if enemyLineUp.size() > 0 and enemiesSpawnedCount < currentWave["maxEnemies"]:
+		enemyLineUp.shuffle()
+		var enemyThatSpawns = enemyLineUp[0]
+		var spawnedEnemy = Global.instance_scene_on_main(enemyThatSpawns, positionInArea)
+		enemiesAlive.append(spawnedEnemy)  # Add spawned enemy to the list
+		enemiesSpawnedCount += 1  # Increment the counter
+		
+		# Connect to the enemy's signal when it's destroyed
+		spawnedEnemy.connect("enemy_destroyed", _on_enemy_destroyed)
 
 func chooseSpawnArea():
 	var randomIndex = randi() % 2  # Assuming you have 2 spawn areas
@@ -80,3 +64,26 @@ func chooseSpawnArea():
 
 func _on_timer_timeout():
 	spawn_enemies()
+
+func _on_enemy_destroyed(enemy):
+	# Remove the destroyed enemy from the enemiesAlive list
+	if enemiesAlive.has(enemy):
+		enemiesAlive.erase(enemy)
+	checkWaveStatus()
+	print ("made it")
+
+func checkWaveStatus():
+	if enemiesAlive.size() == 0 and enemyLineUp.size() == 0:
+		startNextWave()
+
+func startNextWave():
+	if currentWave == WaveOne:
+		setWave(WaveTwo)
+	if currentWave == WaveTwo:
+		setWave(WaveThree)
+	if currentWave == WaveThree:
+		setWave(WaveFour)
+	if currentWave == WaveFour:
+		setWave(WaveFive)
+	else:
+		print ("waves complete")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs812svvm5jpx"]
+
+[ext_resource type="Script" path="res://Singletons/MusicManager.gd" id="1_osolo"]
+[ext_resource type="AudioStream" uid="uid://5s75qyhu6thh" path="res://Music/Stage 1.ogg" id="2_ean78"]
+
+[node name="Music" type="Node"]
+script = ExtResource("1_osolo")
+
+[node name="stage1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ean78")
+volume_db = -10.0

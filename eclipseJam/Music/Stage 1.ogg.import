@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://5s75qyhu6thh"
+path="res://.godot/imported/Stage 1.ogg-cdc487c1f82efd4d2bcc8b562648b599.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music/Stage 1.ogg"
+dest_files=["res://.godot/imported/Stage 1.ogg-cdc487c1f82efd4d2bcc8b562648b599.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://cj4gy7jqsyfug"]
+
+[ext_resource type="Script" path="res://Effects/particles.gd" id="1_pamfx"]
+
+[sub_resource type="Gradient" id="Gradient_8xhba"]
+offsets = PackedFloat32Array(0, 0.717507)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wdbe5"]
+gradient = SubResource("Gradient_8xhba")
+
+[sub_resource type="Curve" id="Curve_40bp7"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.191824, 1.23553), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_sxj76"]
+curve = SubResource("Curve_40bp7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m6fqp"]
+lifetime_randomness = 0.42
+particle_flag_align_y = true
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+angle_max = 127.3
+spread = 180.0
+flatness = 1.0
+initial_velocity_max = 44.2
+angular_velocity_max = 151.16
+radial_velocity_max = 22.1
+linear_accel_min = -29.84
+linear_accel_max = 27.62
+linear_accel_curve = SubResource("CurveTexture_sxj76")
+tangential_accel_max = 45.3
+damping_max = 7.735
+scale_min = 2.5
+scale_max = 4.5
+scale_over_velocity_max = 45.11
+color = Color(1, 1, 1, 0.32549)
+color_ramp = SubResource("GradientTexture1D_wdbe5")
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+emitting = false
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_m6fqp")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+script = ExtResource("1_pamfx")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.1
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

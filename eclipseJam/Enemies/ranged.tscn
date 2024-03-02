@@ -17,5 +17,8 @@ scale = Vector2(9.16326, 9.16326)
 shape = SubResource("CircleShape2D_np54e")
 debug_color = Color(0.898039, 0.760784, 0, 0.419608)
 
+[node name="Timer" type="Timer" parent="." index="5"]
+
 [connection signal="body_entered" from="firingRange" to="." method="_on_firing_range_body_entered"]
 [connection signal="body_exited" from="firingRange" to="." method="_on_firing_range_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

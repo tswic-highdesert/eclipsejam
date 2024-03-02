@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://l5w2hprwcy5s"]
+
+[ext_resource type="Script" path="res://Projectiles/ParentBullet.gd" id="1_aunx3"]
+[ext_resource type="Texture2D" uid="uid://cr1wdo23n7qcc" path="res://icon.svg" id="1_ywa01"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivvwr"]
+
+[node name="ParentBullet" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_aunx3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ivvwr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.185, 0.185)
+texture = ExtResource("1_ywa01")

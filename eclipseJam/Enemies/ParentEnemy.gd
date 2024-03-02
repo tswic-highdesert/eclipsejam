@@ -11,7 +11,6 @@ var currentSpeed = normalSpeed
 
 
 func _physics_process(delta):
-	
 	chase_player(delta)
 
 func chase_player(delta):
@@ -19,6 +18,5 @@ func chase_player(delta):
 	move_and_slide()
 
 
-func _on_aggro_radius_body_entered(body):
-	print("Made it!")
-	currentSpeed = aggroSpeed
+#func _on_aggro_radius_body_entered(body):
+	#currentSpeed = aggroSpeed

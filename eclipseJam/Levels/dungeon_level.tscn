@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://s831a7htjlmm"]
+[gd_scene load_steps=8 format=3 uid="uid://s831a7htjlmm"]
 
 [ext_resource type="Texture2D" uid="uid://dca16w7d1h2cy" path="res://Art/Dungeon Pack/tilemap_packed.png" id="1_1lsbt"]
 [ext_resource type="PackedScene" uid="uid://yi5w2jbg0rcc" path="res://Player/player.tscn" id="1_nv7fc"]
@@ -459,11 +459,10 @@ custom_data_layer_0/name = "Terrain"
 custom_data_layer_0/type = 2
 sources/1 = SubResource("TileSetAtlasSource_efbss")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqc41"]
-
 [node name="Dungeon Level" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
+visible = false
 position = Vector2(11, -22)
 tile_set = SubResource("TileSet_3hwbm")
 format = 2
@@ -480,15 +479,6 @@ position = Vector2(508, 127)
 zoom = Vector2(10, 10)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-mass = 0.13
-gravity_scale = 0.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource("RectangleShape2D_eqc41")
-
-[node name="Area2D" type="Area2D" parent="RigidBody2D"]
 
 [node name="TilemapPacked" type="Sprite2D" parent="."]
 visible = false

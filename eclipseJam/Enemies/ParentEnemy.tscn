@@ -20,6 +20,11 @@ aggroSpeed = 25
 scale = Vector2(0.421875, 0.421875)
 texture = ExtResource("2_2cd25")
 
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(37.8705, 36.6969)
+scale = Vector2(0.825603, 0.389917)
+texture = ExtResource("2_2cd25")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_l0f8g")

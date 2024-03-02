@@ -10,15 +10,14 @@ func _physics_process(delta):
 	chase_player(delta)
 	if inRange == true:
 		fire_projectile()
-	
-	print (currentSpeed)
+	flip()
 	
 
 func chase_player(delta):
 	velocity = (Global.player.global_position-global_position).normalized() * currentSpeed
 	move_and_slide()
 	
-	rotation = (Global.player.global_position-global_position).normalized().angle()
+	#rotation = (Global.player.global_position-global_position).normalized().angle()
 
 func _on_firing_range_body_entered(body):
 	currentSpeed = 0

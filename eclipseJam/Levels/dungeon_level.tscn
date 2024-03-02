@@ -470,6 +470,7 @@ layer_0/tile_data = PackedInt32Array(458760, 1, 4, 524296, 1, 4, 589832, 1, 4, 6
 
 [node name="Player" parent="." instance=ExtResource("1_nv7fc")]
 position = Vector2(508, 127)
+collision_mask = 14
 
 [node name="RemoteTransform2D" parent="Player" index="4"]
 remote_path = NodePath("../../Camera2D")
@@ -493,6 +494,8 @@ position = Vector2(610, 151)
 scale = Vector2(0.38, 0.38)
 
 [node name="ranged" parent="." instance=ExtResource("5_5l355")]
-position = Vector2(281, 161)
+position = Vector2(522, 11)
+
+[node name="Collisions" type="Node" parent="."]
 
 [editable path="Player"]

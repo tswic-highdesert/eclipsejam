@@ -18,7 +18,7 @@ func chase_player(delta):
 	velocity = (Global.player.global_position-global_position).normalized() * currentSpeed
 	move_and_slide()
 	
-	rotation = velocity.angle()
+	rotation = (Global.player.global_position-global_position).normalized().angle()
 
 func _on_firing_range_body_entered(body):
 	currentSpeed = 0

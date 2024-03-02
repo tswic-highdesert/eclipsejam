@@ -1,15 +1,17 @@
 extends CharacterBody2D
 
+const DUST = preload("res://Effects/particles.tscn")
+
+var playerStats = Global.PlayerStats
+
 @export var speed = 1
 @export var friction = 0.02
 
-const DUST = preload("res://Effects/particles.tscn")
 
 @onready var anim_player = $AnimationPlayer
 @onready var sprite = $Player
 
 var scale_speed = 9
-
 var mousePos = Vector2()
 
 func _ready():

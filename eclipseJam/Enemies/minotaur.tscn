@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://26eii08w806n"]
+
+[ext_resource type="PackedScene" uid="uid://bb76lh2hgpb3r" path="res://Enemies/ParentEnemy.tscn" id="1_d31pe"]
+
+[node name="Minotaur" instance=ExtResource("1_d31pe")]

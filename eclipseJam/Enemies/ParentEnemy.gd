@@ -19,8 +19,6 @@ func chase_player(delta):
 	
 func flip():
 	var direction = sign(Global.player.global_position.x - self.global_position.x)
-	print (direction)
-	#var direction = sign(get_global_mouse_position().x - $Player.global_position.x)
 	if direction < 0:
 		$Sprite2D.set_flip_h(true)
 	else:

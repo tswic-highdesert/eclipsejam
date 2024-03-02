@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://yi5w2jbg0rcc" path="res://Player/player.tscn" id="1_nv7fc"]
 [ext_resource type="PackedScene" uid="uid://d0swt82iefkm7" path="res://Pickups/pickup.tscn" id="3_6f503"]
 [ext_resource type="PackedScene" uid="uid://bb76lh2hgpb3r" path="res://Enemies/ParentEnemy.tscn" id="4_gbumb"]
-[ext_resource type="PackedScene" uid="uid://b2ml2ab3r0cew" path="res://Enemies/ranged.tscn" id="5_5l355"]
+[ext_resource type="PackedScene" uid="uid://b2ml2ab3r0cew" path="res://Enemies/RangedParent.tscn" id="5_5l355"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_efbss"]
 texture = ExtResource("1_1lsbt")

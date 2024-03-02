@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://s831a7htjlmm"]
+[gd_scene load_steps=9 format=3 uid="uid://s831a7htjlmm"]
 
 [ext_resource type="Texture2D" uid="uid://dca16w7d1h2cy" path="res://Art/Dungeon Pack/tilemap_packed.png" id="1_1lsbt"]
 [ext_resource type="PackedScene" uid="uid://yi5w2jbg0rcc" path="res://Player/player.tscn" id="1_nv7fc"]
-[ext_resource type="PackedScene" uid="uid://ctmvabrx1mvte" path="res://Pickups/pickup.tscn" id="3_6f503"]
+[ext_resource type="PackedScene" uid="uid://d0swt82iefkm7" path="res://Pickups/pickup.tscn" id="3_6f503"]
 [ext_resource type="PackedScene" uid="uid://bb76lh2hgpb3r" path="res://Enemies/ParentEnemy.tscn" id="4_gbumb"]
+[ext_resource type="PackedScene" uid="uid://b2ml2ab3r0cew" path="res://Enemies/ranged.tscn" id="5_5l355"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_efbss"]
 texture = ExtResource("1_1lsbt")
@@ -500,5 +501,8 @@ position = Vector2(412, 239)
 [node name="ParentEnemy" parent="." instance=ExtResource("4_gbumb")]
 position = Vector2(610, 151)
 scale = Vector2(0.38, 0.38)
+
+[node name="ranged" parent="." instance=ExtResource("5_5l355")]
+position = Vector2(281, 161)
 
 [editable path="Player"]

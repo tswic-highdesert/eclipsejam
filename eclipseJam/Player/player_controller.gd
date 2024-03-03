@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
 const DUST = preload("res://Effects/dust.tscn")
+const projectile = preload("res://Projectiles/ParentBullet.tscn")
 
 var playerStats = Global.PlayerStats
+var canFire = true
+var currentWeapon = clamp(1,1,5)
 
 @export var speed = 1
 @export var friction = 0.02
@@ -20,7 +23,6 @@ func _physics_process(delta):
 	move_and_collide(velocity)
 	calc_anims()
 	look_rotation()
-
 
 func calc_movement(delta):
 	var direction = Vector2(
@@ -55,11 +57,40 @@ func look_rotation():
 	var look_vector = get_global_mouse_position() - global_position
 	$RayCast2D.global_rotation = atan2(look_vector.y, look_vector.x) - PI/2
 
+func _input(event):
+	match event:
+		InputEventMouseButton:
+			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+				match currentWeapon:
+					2: 
+						fire_bullet()
+				
+		InputEventMouseMotion:
+		# Check for mouse wheel movement
+			if event.relative.y < 0:
+				currentWeapon = currentWeapon - 1
+				print(currentWeapon)
+			elif event.relative.y > 0:
+				currentWeapon = currentWeapon + 1
+				print(currentWeapon)
+	
 func switch_weapon():
+	
 	pass
 
 func melee_attack():
+	
 	pass
 
 func fire_bullet():
+	if (canFire == true):
+		var bullet = Global.instance_scene_on_main(projectile, $RayCast2D/FireLocation.global_position)
+		bullet.direction = (get_local_mouse_position())
+		$Timer.start()
+	canFire = false
+	pass
+
+
+func _on_timer_timeout():
+	canFire = true
 	pass

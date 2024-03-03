@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://yi5w2jbg0rcc"]
+[gd_scene load_steps=12 format=3 uid="uid://yi5w2jbg0rcc"]
 
 [ext_resource type="Script" path="res://Player/player_controller.gd" id="1_j451e"]
 [ext_resource type="Texture2D" uid="uid://dyde0fr07wtor" path="res://Art/shadow.png" id="2_jwutx"]
+[ext_resource type="Texture2D" uid="uid://cr1wdo23n7qcc" path="res://icon.svg" id="4_v77d1"]
 [ext_resource type="Texture2D" uid="uid://ct0f7ipldixix" path="res://Art/player.png" id="5_me4k2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c4liu"]
 
 [sub_resource type="Animation" id="Animation_gtci6"]
 length = 0.001
@@ -342,6 +345,22 @@ offset = Vector2(0, -4.8)
 z_index = 1
 texture = ExtResource("5_me4k2")
 
+[node name="WeaponArm" type="RigidBody2D" parent="Player"]
+z_index = 1
+position = Vector2(7, 2)
+rotation = 0.553963
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/WeaponArm"]
+position = Vector2(-0.201677, -2.22695)
+scale = Vector2(0.0417843, 0.114018)
+texture = ExtResource("4_v77d1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/WeaponArm/Sprite2D"]
+scale = Vector2(6.19087, 4.82982)
+shape = SubResource("CapsuleShape2D_c4liu")
+debug_color = Color(0.847059, 0.694118, 0, 0.419608)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_e5kxu")
@@ -359,3 +378,11 @@ position = Vector2(0, 7.95)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 rotation = -1.5708
+
+[node name="FireLocation" type="Marker2D" parent="RayCast2D"]
+position = Vector2(-8.68798e-05, 24)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

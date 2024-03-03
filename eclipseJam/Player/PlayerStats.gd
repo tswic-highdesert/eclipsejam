@@ -1,7 +1,7 @@
 extends Resource
 class_name PlayerStats
 
-@export var max_health = 3
+@export var max_health = 10
 
 var health = max_health
 var molotovCount = 0

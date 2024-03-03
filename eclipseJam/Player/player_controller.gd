@@ -93,6 +93,7 @@ func switch_weapon(newWeapon):
 		weapon1.visible = false
 		weapon2.visible = true
 		currentWeapon = 2
+	pass
 
 func melee_attack():
 	
@@ -104,6 +105,7 @@ func fire_bullet():
 		bullet.direction = (get_local_mouse_position())
 		$Timer.start()
 	canFire = false
+	pass
 
 func throw_molotov():
 	if playerStats.molotovCount > 0:
@@ -134,3 +136,4 @@ func throw_molotov():
 
 func _on_timer_timeout():
 	canFire = true
+	pass

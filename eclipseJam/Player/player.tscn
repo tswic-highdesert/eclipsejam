@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://yi5w2jbg0rcc"]
+[gd_scene load_steps=12 format=3 uid="uid://yi5w2jbg0rcc"]
 
 [ext_resource type="Script" path="res://Player/player_controller.gd" id="1_j451e"]
 [ext_resource type="Texture2D" uid="uid://dyde0fr07wtor" path="res://Art/shadow.png" id="2_jwutx"]
 [ext_resource type="Texture2D" uid="uid://cr1wdo23n7qcc" path="res://icon.svg" id="4_v77d1"]
-[ext_resource type="PackedScene" uid="uid://b8sj7jxop34g2" path="res://Player/PlayerStats.tscn" id="5_66f10"]
 [ext_resource type="Texture2D" uid="uid://ct0f7ipldixix" path="res://Art/player.png" id="5_me4k2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c4liu"]
@@ -389,7 +388,5 @@ position = Vector2(-8.68798e-05, 24)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
-
-[node name="PlayerStats" parent="." instance=ExtResource("5_66f10")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

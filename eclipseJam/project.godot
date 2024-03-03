@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Eclipse Jam"
-run/main_scene="res://Levels/wave_testing2.tscn"
+run/main_scene="res://Levels/opening_cutscene.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 

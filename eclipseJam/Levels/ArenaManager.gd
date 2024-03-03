@@ -17,9 +17,10 @@ const MINOTAUR = preload("res://Enemies/minotaur.tscn")
 
 @onready var spawnArea1 = $"Spawn Area 1"
 @onready var spawnArea2 = $"Spawn Area 2"
+@onready var waveText = $CanvasLayer/Label
 
 var WaveOne = {"enemies": [GHOST], "maxEnemies": 5}
-var WaveTwo = {"enemies": [GHOST, HARPEE], "maxEnemies": 35}
+var WaveTwo = {"enemies": [GHOST, HARPEE], "maxEnemies": 8}
 var WaveThree = {"enemies": [GHOST, HARPEE, CYCLOPS], "maxEnemies": 55}
 var WaveFour = {"enemies": [GHOST, HARPEE, CYCLOPS, MINOTAUR], "maxEnemies": 75}
 var WaveFive = {"enemies": [GHOST, HARPEE, CYCLOPS, MINOTAUR, MEDUSA], "maxEnemies": 105}
@@ -31,6 +32,7 @@ var enemiesAlive = []
 
 func _ready():
 	setWave(WaveOne)
+	SignalManager.enemy_destroyed.connect(_on_enemy_destroyed)
 
 func setWave(wave):
 	currentWave = wave
@@ -56,34 +58,48 @@ func spawn_enemies():
 		enemiesSpawnedCount += 1  # Increment the counter
 		
 		# Connect to the enemy's signal when it's destroyed
-		spawnedEnemy.connect("enemy_destroyed", _on_enemy_destroyed)
+		#spawnedEnemy.connect("enemy_destroyed", _on_enemy_destroyed)
 
 func chooseSpawnArea():
 	var randomIndex = randi() % 2  # Assuming you have 2 spawn areas
 	return [spawnArea1, spawnArea2][randomIndex]
-
-func _on_timer_timeout():
-	spawn_enemies()
 
 func _on_enemy_destroyed(enemy):
 	# Remove the destroyed enemy from the enemiesAlive list
 	if enemiesAlive.has(enemy):
 		enemiesAlive.erase(enemy)
 	checkWaveStatus()
-	print ("made it")
+
+func _on_enemy_spawn_timer_timeout():
+	spawn_enemies()
 
 func checkWaveStatus():
-	if enemiesAlive.size() == 0 and enemyLineUp.size() == 0:
-		startNextWave()
+	if enemiesAlive.size() == 0:
+		$waveCooldown.start()
 
+func _on_wave_cooldown_timeout():
+	startNextWave()
+	
 func startNextWave():
 	if currentWave == WaveOne:
 		setWave(WaveTwo)
+		waveText.text = "Wave 2"
+		return
 	if currentWave == WaveTwo:
 		setWave(WaveThree)
+		waveText.text = "Wave 3"
+		return
 	if currentWave == WaveThree:
 		setWave(WaveFour)
+		waveText.text = "Wave 4"
+		return
 	if currentWave == WaveFour:
 		setWave(WaveFive)
+		waveText.text = "Wave 5"
+		return
 	else:
-		print ("waves complete")
+		print ("Waves Completed!")
+
+
+
+

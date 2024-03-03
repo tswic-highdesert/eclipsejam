@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-@export var normalSpeed = 35
-@export var aggroSpeed = 55
+@export var normalSpeed = 75
+@export var aggroSpeed = 115
 
 #@onready var aggroRadius = $aggroRadius.transform
 
@@ -27,7 +27,5 @@ func flip():
 
 func _on_aggro_radius_body_entered(body):
 	currentSpeed = aggroSpeed
-
-func _on_enemy_destroyed():
-	emit_signal("enemy_destroyed")
-	queue_free()  # Destroy the enemy instance
+	SignalManager.enemy_destroyed.emit(self)
+	queue_free()

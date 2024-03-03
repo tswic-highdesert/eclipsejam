@@ -4,12 +4,11 @@ extends CharacterBody2D
 @export var normalSpeed = 75
 @export var aggroSpeed = 115
 
-#@onready var aggroRadius = $aggroRadius.transform
+@onready var stats = $EnemyStats
 
 var motion = Vector2.ZERO
 var currentSpeed = normalSpeed
 
-signal enemy_destroyed
 
 func _physics_process(delta):
 	chase_player(delta)
@@ -27,5 +26,9 @@ func flip():
 
 func _on_aggro_radius_body_entered(body):
 	currentSpeed = aggroSpeed
-	SignalManager.enemy_destroyed.emit(self)
-	queue_free()
+	#SignalManager.enemy_destroyed.emit(self)
+	#queue_free()
+
+
+func _on_hurtbox_hit(damage):
+	stats.health - damage

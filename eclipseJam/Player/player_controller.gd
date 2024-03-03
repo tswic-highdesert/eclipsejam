@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const DUST = preload("res://Effects/dust.tscn")
 const projectile = preload("res://Projectiles/ParentBullet.tscn")
+const molotov = preload("res://Projectiles/MolotovProjectile.tscn")
 
 var playerStats = Global.PlayerStats
 var canFire = true
@@ -79,10 +80,9 @@ func _input(event):
 		elif event.is_action_pressed("slot_two"):
 			switch_weapon(2)
 			print(currentWeapon)
-	elif InputEventKey:
-		event.is_action_pressed("throw_molotov"	)
-		
-		
+		elif event.is_action_pressed("throw_molotov"):
+			throw_molotov()
+			print("throw!")
 		
 func switch_weapon(newWeapon):
 	if newWeapon == 1:
@@ -107,6 +107,32 @@ func fire_bullet():
 	canFire = false
 	pass
 
+func throw_molotov():
+	if playerStats.molotovCount > 0:
+		var newMolotov = Global.instance_scene_on_main(molotov, $RayCast2D/FireLocation.global_position)
+		var targetLoc = (get_local_mouse_position())
+		newMolotov.direction = (get_local_mouse_position())
+		if newMolotov.position == targetLoc:
+			molotov.CollisionShape2D/FireAOE
+	
+		
+		
+		
+		#var newMolotov = Global.instance_scene_on_main(molotov, $RayCast2D/FireLocation.global_position)
+		#if newMolotov is MolotovProjectile:
+			#var mouse_position = get_local_mouse_position()
+#
+			## Check if mouse_position is not Nil
+			#if mouse_position != null:
+				#newMolotov.target_position = mouse_position
+				#newMolotov.initial_position = $RayCast2D/FireLocation.global_position
+				#get_parent().add_child(newMolotov)
+
+
+#func throw_molotov():
+	#if (playerStats.molotovCount > 0):
+		#var molotov = Global.instance_scene_on_main(molotov, $RayCast2D/FireLocation.global_position)
+		#molotov.direction = (get_local_mouse_position())
 
 func _on_timer_timeout():
 	canFire = true

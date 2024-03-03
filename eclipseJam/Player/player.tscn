@@ -335,6 +335,8 @@ size = Vector2(8, 5)
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_j451e")
+speed = null
+friction = null
 
 [node name="Shadow" type="Sprite2D" parent="."]
 position = Vector2(0, 7.88)

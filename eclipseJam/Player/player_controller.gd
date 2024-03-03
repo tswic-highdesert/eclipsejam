@@ -13,16 +13,16 @@ var currentWeapon = clamp(1,1,5)
 @export var friction = 0.02
 @onready var anim_player = $AnimationPlayer
 @onready var sprite = $Player
-@onready var weapon1 = $Player/WeaponArm
+#@onready var weapon1 = $Player/WeaponArm
 @onready var weapon2 = $RayCast2D
 
 func _ready():
 	Global.player = self
 	if currentWeapon == 1:
-		weapon1.visible = true
+		#weapon1.visible = true
 		weapon2.visible = false
 	elif currentWeapon == 2:
-		weapon1.visible = false
+		#weapon1.visible = false
 		weapon2.visible = true
 		
 func _physics_process(delta):
@@ -86,11 +86,11 @@ func _input(event):
 		
 func switch_weapon(newWeapon):
 	if newWeapon == 1:
-		weapon1.visible = true
+		#weapon1.visible = true
 		weapon2.visible = false
 		currentWeapon = 1
 	elif newWeapon == 2:
-		weapon1.visible = false
+		#weapon1.visible = false
 		weapon2.visible = true
 		currentWeapon = 2
 	pass
@@ -113,7 +113,8 @@ func throw_molotov():
 		var targetLoc = (get_local_mouse_position())
 		newMolotov.direction = (get_local_mouse_position())
 		if newMolotov.position == targetLoc:
-			molotov.CollisionShape2D/FireAOE
+			pass
+			#molotov.CollisionShape2D/FireAOE
 	
 		
 		

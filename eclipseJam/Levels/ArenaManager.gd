@@ -19,7 +19,7 @@ const MINOTAUR = preload("res://Enemies/minotaur.tscn")
 @onready var spawnArea2 = $"Spawn Area 2"
 @onready var waveText = $CanvasLayer/Label
 
-var WaveOne = {"enemies": [GHOST], "maxEnemies": 5}
+var WaveOne = {"enemies": [MINOTAUR], "maxEnemies": 5}
 var WaveTwo = {"enemies": [GHOST, HARPEE], "maxEnemies": 8}
 var WaveThree = {"enemies": [GHOST, HARPEE, CYCLOPS], "maxEnemies": 55}
 var WaveFour = {"enemies": [GHOST, HARPEE, CYCLOPS, MINOTAUR], "maxEnemies": 75}

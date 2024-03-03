@@ -7,17 +7,18 @@ var playerStats = Global.PlayerStats
 var canFire = true
 var currentWeapon = clamp(1,1,5)
 
+
 @export var speed = 1
 @export var friction = 0.02
 @onready var anim_player = $AnimationPlayer
 @onready var sprite = $Player
-
+@onready var weapon1 = $Player/WeaponArm
+@onready var weapon2 = $RayCast2D
 
 func _ready():
 	Global.player = self
 
 func _physics_process(delta):
-	
 	flip()
 	calc_movement(delta)
 	move_and_collide(velocity)
@@ -58,24 +59,30 @@ func look_rotation():
 	$RayCast2D.global_rotation = atan2(look_vector.y, look_vector.x) - PI/2
 
 func _input(event):
-	match event:
-		InputEventMouseButton:
-			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-				match currentWeapon:
-					2: 
-						fire_bullet()
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			print("Hi Mark")
+			if currentWeapon == 2:
+				fire_bullet()
 				
-		InputEventMouseMotion:
+	elif InputEventKey:
 		# Check for mouse wheel movement
-			if event.relative.y < 0:
-				currentWeapon = currentWeapon - 1
-				print(currentWeapon)
-			elif event.relative.y > 0:
-				currentWeapon = currentWeapon + 1
-				print(currentWeapon)
+		if event.is_action_pressed("slot_one"):
+			switch_weapon(1)
+			print(currentWeapon)
+		elif event.is_action_pressed("slot_two"):
+			switch_weapon(2)
+			print(currentWeapon)
 	
-func switch_weapon():
-	
+func switch_weapon(newWeapon):
+	if newWeapon == 1:
+		weapon1.visible = true
+		weapon2.visible = false
+		currentWeapon = 1
+	elif newWeapon == 2:
+		weapon1.visible = false
+		weapon2.visible = true
+		currentWeapon = 2
 	pass
 
 func melee_attack():

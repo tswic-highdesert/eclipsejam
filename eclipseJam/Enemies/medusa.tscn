@@ -1,7 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://03tf5yiipppp"]
+[gd_scene load_steps=2 format=3 uid="uid://03tf5yiipppp"]
 
 [ext_resource type="PackedScene" uid="uid://b2ml2ab3r0cew" path="res://Enemies/RangedParent.tscn" id="1_ou370"]
-[ext_resource type="Script" path="res://Enemies/medusa.gd" id="2_r4p38"]
 
 [node name="Medusa" instance=ExtResource("1_ou370")]
-script = ExtResource("2_r4p38")

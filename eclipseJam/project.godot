@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Eclipse Jam"
-run/main_scene="res://Levels/wave_testing.tscn"
+run/main_scene="res://Levels/wave_testing2.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Global="*res://Singletons/Global.gd"
 Music="*res://Singletons/Music.tscn"
 SoundFX="*res://Singletons/SoundFX.tscn"
+SignalManager="*res://Singletons/SignalManager.gd"
 
 [display]
 

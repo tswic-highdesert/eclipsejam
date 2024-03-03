@@ -55,6 +55,7 @@ func look_rotation():
 	var look_vector = get_global_mouse_position() - global_position
 	$RayCast2D.global_rotation = atan2(look_vector.y, look_vector.x) - PI/2
 
+
 func switch_weapon():
 	pass
 

@@ -27,7 +27,6 @@ func flip():
 
 func _on_aggro_radius_body_entered(body):
 	currentSpeed = aggroSpeed
-	_on_enemy_destroyed()
 
 func _on_enemy_destroyed():
 	emit_signal("enemy_destroyed")

@@ -6,20 +6,12 @@ var playerStats = Global.PlayerStats
 
 @export var speed = 1
 @export var friction = 0.02
-
-
 @onready var anim_player = $AnimationPlayer
 @onready var sprite = $Player
 
-var scale_speed = 9
-
-#var raycast_container: Node2D
-#var raycast: RayCast2D
 
 func _ready():
 	Global.player = self
-	#raycast_container = get_node("RayCastContainer")
-	#raycast = raycast_container.get_node("RayCast2D")
 
 func _physics_process(delta):
 	
@@ -27,6 +19,7 @@ func _physics_process(delta):
 	calc_movement(delta)
 	move_and_collide(velocity)
 	calc_anims()
+	look_rotation()
 
 
 func calc_movement(delta):
@@ -52,34 +45,12 @@ func flip():
 		$Player.set_flip_h(true)
 	else:
 		$Player.set_flip_h(false)
-	
-	
+
 func spawn_ground_effects():
 	Global.instance_scene_on_main(DUST, $GroundMarker.global_position)
 	SoundFX.play("grass_step")
 
-#func _process(delta):
-	#if raycast:
-		#var mouse_position = get_viewport().get_mouse_position()
-		#var local_mouse_position = raycast_container.to_local(mouse_position)
-		#var aimdirection = (local_mouse_position - raycast_container.global_position).normalized()
-		#var rotation_angle = atan2(aimdirection.y, aimdirection.x)
-		#raycast_container.rotation_degrees = rad_to_deg(rotation_angle)
-	#else:
-		#print("RayCast2D not found. Check the variable assignment in the script.")
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+func look_rotation():
+	#Gets the mouse location and sets the muzzle rotation to match
+	var look_vector = get_global_mouse_position() - global_position
+	$RayCast2D.global_rotation = atan2(look_vector.y, look_vector.x) - PI/2

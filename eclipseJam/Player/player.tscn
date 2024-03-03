@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://yi5w2jbg0rcc"]
+[gd_scene load_steps=10 format=3 uid="uid://yi5w2jbg0rcc"]
 
 [ext_resource type="Script" path="res://Player/player_controller.gd" id="1_j451e"]
 [ext_resource type="Texture2D" uid="uid://dyde0fr07wtor" path="res://Art/shadow.png" id="2_jwutx"]
@@ -25,6 +25,42 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.4, 0.8), Vector2(0.4, 2.41), Vector2(0.4, 0.8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.00698132, 0.0, 0.00698132]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.644, 0.644), Vector2(0.648, 0.644), Vector2(0.644, 0.644)]
+}
 
 [sub_resource type="Animation" id="Animation_huyjt"]
 length = 0.001
@@ -40,54 +76,146 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.64, 0.64)]
+}
+
+[sub_resource type="Animation" id="Animation_hohd4"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 2), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0174533, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.64, 0.64), Vector2(0.65, 0.65), Vector2(0.64, 0.64)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xc4ag"]
 _data = {
 "RESET": SubResource("Animation_huyjt"),
+"idle": SubResource("Animation_hohd4"),
 "walk": SubResource("Animation_uany0")
 }
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_j451e")
+speed = 5
 
 [node name="Shadow" type="Sprite2D" parent="."]
 position = Vector2(0, 7.88)
 texture = ExtResource("2_jwutx")
 offset = Vector2(0, -4.8)
 
-[node name="Weapons" type="Node" parent="."]
-
-[node name="Unarmed" type="Sprite2D" parent="Weapons"]
-position = Vector2(-3, -9)
-scale = Vector2(0.555, 0.555)
-texture = ExtResource("3_rrio7")
-offset = Vector2(185, 0)
-hframes = 5
-
-[node name="Staff" type="Sprite2D" parent="Weapons"]
-visible = false
-position = Vector2(-3, -9)
-scale = Vector2(0.555, 0.555)
-texture = ExtResource("3_rrio7")
-offset = Vector2(185, 0)
-hframes = 5
-frame = 3
-
-[node name="Gun" type="Sprite2D" parent="Weapons"]
-visible = false
-position = Vector2(-3, -9)
-scale = Vector2(0.555, 0.555)
-texture = ExtResource("3_rrio7")
-offset = Vector2(185, 0)
-hframes = 5
-frame = 1
-
 [node name="Player" type="Sprite2D" parent="."]
 z_index = 1
 scale = Vector2(0.64, 0.64)
 texture = ExtResource("3_evfdi")
 hframes = 5
+
+[node name="Unarmed" type="Sprite2D" parent="Player"]
+show_behind_parent = true
+position = Vector2(-4.6875, -14.0625)
+scale = Vector2(0.867188, 0.867188)
+texture = ExtResource("3_rrio7")
+offset = Vector2(185, 0)
+hframes = 5
+
+[node name="Gun" type="Sprite2D" parent="Player"]
+visible = false
+show_behind_parent = true
+position = Vector2(-4.6875, -14.0625)
+scale = Vector2(0.867188, 0.867188)
+texture = ExtResource("3_rrio7")
+offset = Vector2(185, 0)
+hframes = 5
+frame = 1
+
+[node name="Staff" type="Sprite2D" parent="Player"]
+visible = false
+show_behind_parent = true
+position = Vector2(-4.6875, -14.0625)
+scale = Vector2(0.867188, 0.867188)
+texture = ExtResource("3_rrio7")
+offset = Vector2(185, 0)
+hframes = 5
+frame = 3
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(-5.4375, 9.5)

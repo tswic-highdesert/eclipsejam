@@ -12,10 +12,14 @@ var playerStats = Global.PlayerStats
 @onready var sprite = $Player
 
 var scale_speed = 9
-var mousePos = Vector2()
+
+#var raycast_container: Node2D
+#var raycast: RayCast2D
 
 func _ready():
 	Global.player = self
+	#raycast_container = get_node("RayCastContainer")
+	#raycast = raycast_container.get_node("RayCast2D")
 
 func _physics_process(delta):
 	
@@ -54,3 +58,28 @@ func spawn_ground_effects():
 	Global.instance_scene_on_main(DUST, $GroundMarker.global_position)
 	SoundFX.play("grass_step")
 
+#func _process(delta):
+	#if raycast:
+		#var mouse_position = get_viewport().get_mouse_position()
+		#var local_mouse_position = raycast_container.to_local(mouse_position)
+		#var aimdirection = (local_mouse_position - raycast_container.global_position).normalized()
+		#var rotation_angle = atan2(aimdirection.y, aimdirection.x)
+		#raycast_container.rotation_degrees = rad_to_deg(rotation_angle)
+	#else:
+		#print("RayCast2D not found. Check the variable assignment in the script.")
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

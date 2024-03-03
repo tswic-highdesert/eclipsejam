@@ -4,20 +4,29 @@ extends Area2D
 
 @export var direction : Vector2 = Vector2.UP
 @export var speed : float = 5.0
-var position :Vector2 = Vector2.ZERO
-
 @onready var timer = $Timer
+
+var endpoint = null
+@onready var fireAOE = $CollisionShape2D/FireAOE
+
+
+func _init():
+	endpoint = get_local_mouse_position()
 
 func _process(delta):
 	position += (direction * speed) * delta
-
+	detonation()
 func _on_body_entered(body):
 	pass # Replace with function body.
 
+func detonation():
+	if position == endpoint:
+		fireAOE.enable
+		$Timer.start()
+
+
 func _on_timer_timeout():
 	queue_free()
-
-
 
 #extends RigidBody2D
 #

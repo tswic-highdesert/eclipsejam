@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://2h8t4pr1dlvi" path="res://Enemies/EnemyStats.tscn" id="5_uoqq6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0f8g"]
-size = Vector2(55, 54)
+size = Vector2(36, 118)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vheqc"]
 
@@ -37,6 +37,8 @@ collision_layer = 2
 shape = SubResource("CircleShape2D_vheqc")
 
 [node name="EnemyStats" parent="." instance=ExtResource("5_uoqq6")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [connection signal="hit" from="Hurtbox" to="." method="_on_hurtbox_hit"]
 [connection signal="body_entered" from="aggroRadius" to="." method="_on_aggro_radius_body_entered"]

@@ -19,25 +19,25 @@ position = Vector2(508, 127)
 rotation = 0.00247443
 collision_mask = 14
 
-[node name="RemoteTransform2D" parent="Player" index="4"]
+[node name="RemoteTransform2D" parent="Player" index="3"]
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(508, 127)
 rotation = 0.00247443
-zoom = Vector2(6, 6)
+zoom = Vector2(0.365, 0.365)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="Spawn Area 1" type="Area2D" parent="."]
-position = Vector2(312, 132)
+position = Vector2(-1658, -812)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawn Area 1"]
 position = Vector2(-4, -2)
 shape = SubResource("RectangleShape2D_ribce")
 
 [node name="Spawn Area 2" type="Area2D" parent="."]
-position = Vector2(947, 129)
+position = Vector2(-2135, -772)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawn Area 2"]
 position = Vector2(-2, 1)

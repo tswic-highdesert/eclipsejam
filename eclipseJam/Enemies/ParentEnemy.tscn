@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bb76lh2hgpb3r"]
+[gd_scene load_steps=8 format=3 uid="uid://bb76lh2hgpb3r"]
 
 [ext_resource type="Script" path="res://Enemies/ParentEnemy.gd" id="1_bnhyf"]
 [ext_resource type="Texture2D" uid="uid://cr1wdo23n7qcc" path="res://icon.svg" id="2_2cd25"]
+[ext_resource type="PackedScene" uid="uid://ccqo6da7ewy15" path="res://Enemies/hurtbox.tscn" id="3_i7p0e"]
+[ext_resource type="Script" path="res://Enemies/hurtbox.gd" id="4_onm7q"]
+[ext_resource type="PackedScene" uid="uid://2h8t4pr1dlvi" path="res://Enemies/EnemyStats.tscn" id="5_uoqq6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0f8g"]
 size = Vector2(55, 54)
@@ -12,7 +15,6 @@ size = Vector2(55, 54)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_bnhyf")
-aggroSpeed = 25
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.421875, 0.421875)
@@ -24,6 +26,9 @@ shape = SubResource("RectangleShape2D_l0f8g")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 
+[node name="Hurtbox" parent="." instance=ExtResource("3_i7p0e")]
+script = ExtResource("4_onm7q")
+
 [node name="aggroRadius" type="Area2D" parent="."]
 scale = Vector2(21, 21)
 collision_layer = 2
@@ -31,4 +36,9 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="aggroRadius"]
 shape = SubResource("CircleShape2D_vheqc")
 
+[node name="EnemyStats" parent="." instance=ExtResource("5_uoqq6")]
+
+[connection signal="hit" from="Hurtbox" to="." method="_on_hurtbox_hit"]
 [connection signal="body_entered" from="aggroRadius" to="." method="_on_aggro_radius_body_entered"]
+
+[editable path="Hurtbox"]

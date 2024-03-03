@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://4662to7nqrax"]
+[gd_scene load_steps=6 format=3 uid="uid://4662to7nqrax"]
 
 [ext_resource type="Script" path="res://Levels/ArenaManager.gd" id="1_lbqpw"]
 [ext_resource type="PackedScene" uid="uid://yi5w2jbg0rcc" path="res://Player/player.tscn" id="2_leqf1"]
 [ext_resource type="PackedScene" uid="uid://crjolikxpii4v" path="res://Geometry/WallBase.tscn" id="3_k1cal"]
+[ext_resource type="PackedScene" uid="uid://c33iu5tamesjk" path="res://Pickups/molotov.tscn" id="4_281v2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ribce"]
 size = Vector2(170.5, 349.5)
@@ -66,6 +67,9 @@ position = Vector2(1050, -90)
 scale = Vector2(0.454981, 5.12692)
 collision_layer = 14
 collision_mask = 14
+
+[node name="Molotov" parent="." instance=ExtResource("4_281v2")]
+position = Vector2(604, 152)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://c33iu5tamesjk"]
+
+[ext_resource type="PackedScene" uid="uid://d0swt82iefkm7" path="res://Pickups/pickup.tscn" id="1_2sfml"]
+[ext_resource type="Script" path="res://Pickups/molotov.gd" id="2_vfwfr"]
+
+[node name="Molotov" instance=ExtResource("1_2sfml")]
+script = ExtResource("2_vfwfr")

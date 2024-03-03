@@ -17,7 +17,13 @@ var currentWeapon = clamp(1,1,5)
 
 func _ready():
 	Global.player = self
-
+	if currentWeapon == 1:
+		weapon1.visible = true
+		weapon2.visible = false
+	elif currentWeapon == 2:
+		weapon1.visible = false
+		weapon2.visible = true
+		
 func _physics_process(delta):
 	flip()
 	calc_movement(delta)
@@ -73,7 +79,11 @@ func _input(event):
 		elif event.is_action_pressed("slot_two"):
 			switch_weapon(2)
 			print(currentWeapon)
-	
+	elif InputEventKey:
+		event.is_action_pressed("throw_molotov"	)
+		
+		
+		
 func switch_weapon(newWeapon):
 	if newWeapon == 1:
 		weapon1.visible = true

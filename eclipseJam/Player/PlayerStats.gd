@@ -4,7 +4,7 @@ class_name PlayerStats
 @export var max_health = 10
 
 var health = max_health
-
+var molotovCount = 0
 signal player_health_changed(value)
 signal player_died
 

@@ -14,13 +14,20 @@ const HARPEE = preload("res://Enemies/harpee.tscn")
 const MEDUSA = preload("res://Enemies/medusa.tscn")
 const MINOTAUR = preload("res://Enemies/minotaur.tscn")
 
+<<<<<<< Updated upstream
 #const INVICIBILITY_PICKUP = preload
 #const MOLOTOV_PICKUP = preload
 #onst HEALTH_PICKUP = preload
+=======
+const INVICIBILITY_PICKUP = preload("res://Pickups/invincibility.tscn")
+#const MOLOTOV_PICKUP = preload("res://Pickups/molotov.tscn")
+const HEALTH_PICKUP = preload("res://Pickups/healthpickup.tscn")
+>>>>>>> Stashed changes
 
 
 @onready var spawnArea1 = $"Spawn Area 1"
 @onready var spawnArea2 = $"Spawn Area 2"
+@onready var pickupArea = $"Pickup Area"
 @onready var waveText = $CanvasLayer/Label
 
 var WaveOne = {"enemies": [GHOST], "maxEnemies": 105}
@@ -28,6 +35,9 @@ var WaveTwo = {"enemies": [GHOST, HARPEE], "maxEnemies": 8}
 var WaveThree = {"enemies": [GHOST, HARPEE, CYCLOPS], "maxEnemies": 55}
 var WaveFour = {"enemies": [GHOST, HARPEE, CYCLOPS, MINOTAUR], "maxEnemies": 75}
 var WaveFive = {"enemies": [GHOST, HARPEE, CYCLOPS, MINOTAUR, MEDUSA], "maxEnemies": 105}
+
+var pickups = [HEALTH_PICKUP]
+
 
 var currentWave = {}
 var enemyLineUp = []
@@ -60,9 +70,24 @@ func spawn_enemies():
 		var spawnedEnemy = Global.instance_scene_on_main(enemyThatSpawns, positionInArea)
 		enemiesAlive.append(spawnedEnemy)  # Add spawned enemy to the list
 		enemiesSpawnedCount += 1  # Increment the counter
-		
-		# Connect to the enemy's signal when it's destroyed
-		#spawnedEnemy.connect("enemy_destroyed", _on_enemy_destroyed)
+
+
+func spawn_pickup():
+	var center = pickupArea.position
+	var size = pickupArea.get_node("CollisionShape2D").shape.extents
+	var positionInArea = Vector2() # Initialize positionInArea
+
+	positionInArea.x = randf() * size.x - (size.x / 2) + center.x
+	positionInArea.y = randf() * size.y - (size.y / 2) + center.y
+	pickups.shuffle()
+	var pickupThatSpawns = pickups[0]
+	Global.instance_scene_on_main(pickupThatSpawns, positionInArea)
+	
+	print ("MADE IT")
+
+
+
+
 
 func chooseSpawnArea():
 	var randomIndex = randi() % 2  # Assuming you have 2 spawn areas
@@ -107,3 +132,7 @@ func startNextWave():
 
 
 
+
+
+func _on_pickup_spawner_timeout():
+	spawn_pickup()

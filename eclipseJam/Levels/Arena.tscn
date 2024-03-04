@@ -101,6 +101,14 @@ scale = Vector2(3.795, 3.795)
 position = Vector2(-4, -2)
 shape = SubResource("RectangleShape2D_ywyvh")
 
+[node name="Pickup Area" type="Area2D" parent="."]
+position = Vector2(136, 1461)
+scale = Vector2(22.49, 7.335)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup Area"]
+position = Vector2(-4, -2)
+shape = SubResource("RectangleShape2D_ywyvh")
+
 [node name="Spawn Area 2" type="Area2D" parent="."]
 position = Vector2(2925, 456)
 rotation = -0.649735
@@ -130,7 +138,11 @@ theme_override_font_sizes/font_size = 21
 text = "Wave 1"
 metadata/_edit_use_anchors_ = true
 
+[node name="pickupSpawner" type="Timer" parent="."]
+autostart = true
+
 [connection signal="timeout" from="waveCooldown" to="." method="_on_wave_cooldown_timeout"]
 [connection signal="timeout" from="enemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
+[connection signal="timeout" from="pickupSpawner" to="." method="_on_pickup_spawner_timeout"]
 
 [editable path="Player"]

@@ -8,11 +8,12 @@ extends Node2D
 # Minotaur - AOE
 # Medusa - Ranged (hardest)
 
-const CYCLOPS = preload("res://Enemies/cyclops.tscn")
-const GHOST = preload("res://Enemies/ghost.tscn")
-const HARPEE = preload("res://Enemies/harpee.tscn")
-const MEDUSA = preload("res://Enemies/medusa.tscn")
-const MINOTAUR = preload("res://Enemies/minotaur.tscn")
+const TEMP = preload("res://Enemies/ParentEnemy.tscn")
+#const CYCLOPS = preload("res://Enemies/cyclops.tscn")
+#const GHOST = preload("res://Enemies/ghost.tscn")
+#const HARPEE = preload("res://Enemies/harpee.tscn")
+#const MEDUSA = preload("res://Enemies/medusa.tscn")
+#const MINOTAUR = preload("res://Enemies/minotaur.tscn")
 
 const INVICIBILITY_PICKUP = preload("res://Pickups/invincibility.tscn")
 const HEALTH_PICKUP = preload("res://Pickups/healthpickup.tscn")
@@ -23,11 +24,11 @@ const HEALTH_PICKUP = preload("res://Pickups/healthpickup.tscn")
 @onready var pickupArea = $"Pickup Area"
 @onready var waveText = $CanvasLayer/Label
 
-var WaveOne = {"enemies": [MINOTAUR], "maxEnemies": 105}
-var WaveTwo = {"enemies": [GHOST, HARPEE], "maxEnemies": 8}
-var WaveThree = {"enemies": [GHOST, HARPEE, CYCLOPS], "maxEnemies": 55}
-var WaveFour = {"enemies": [GHOST, HARPEE, CYCLOPS, MINOTAUR], "maxEnemies": 75}
-var WaveFive = {"enemies": [GHOST, HARPEE, CYCLOPS, MINOTAUR, MEDUSA], "maxEnemies": 105}
+var WaveOne = {"enemies": [TEMP], "maxEnemies": 5}
+var WaveTwo = {"enemies": [TEMP, TEMP], "maxEnemies": 8}
+var WaveThree = {"enemies": [TEMP, TEMP, TEMP], "maxEnemies": 55}
+var WaveFour = {"enemies": [TEMP, TEMP, TEMP, TEMP], "maxEnemies": 75}
+var WaveFive = {"enemies": [TEMP, TEMP, TEMP, TEMP, TEMP], "maxEnemies": 105}
 
 var pickups = [HEALTH_PICKUP]
 

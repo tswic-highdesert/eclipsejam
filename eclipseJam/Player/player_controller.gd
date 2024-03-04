@@ -20,11 +20,18 @@ var currentWeapon = 1
 func _ready():
 	Global.player = self
 	if currentWeapon == 1:
+<<<<<<< Updated upstream
 		weapon1.visible = true
 		$Player/Unarmed/UnarmedCollision.disabled = false
 		weapon2.visible = false
 		weapon3.visible = false
 		$Player/Staff/StaffCollision.disabled = false
+=======
+
+		weapon1.disabled = true
+		weapon2.disabled = false
+		weapon3.disabled = false
+>>>>>>> Stashed changes
 	elif currentWeapon == 2:
 		weapon1.visible = false
 		$Player/Unarmed/UnarmedCollision.disabled = false

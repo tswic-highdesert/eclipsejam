@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://co5llkclw5vnj"]
 
 [ext_resource type="AudioStream" uid="uid://b1jby225xnbsp" path="res://Music/Main Menu Music.mp3" id="1_utqbx"]
-[ext_resource type="Texture2D" uid="uid://b5tyglfxxl46" path="res://Art/background sky.jpg" id="2_kmeys"]
-[ext_resource type="Texture2D" uid="uid://c62d68y7ail02" path="res://Art/Clouds.png" id="3_uldo4"]
+[ext_resource type="Texture2D" uid="uid://b5tyglfxxl46" path="res://Art/World/background sky.jpg" id="2_kmeys"]
+[ext_resource type="Texture2D" uid="uid://c62d68y7ail02" path="res://Art/World/Clouds.png" id="3_uldo4"]
 
 [sub_resource type="Animation" id="Animation_rf3m2"]
 resource_name = "Cutscene"

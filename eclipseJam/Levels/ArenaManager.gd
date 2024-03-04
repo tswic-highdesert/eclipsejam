@@ -23,7 +23,7 @@ const HEALTH_PICKUP = preload("res://Pickups/healthpickup.tscn")
 @onready var pickupArea = $"Pickup Area"
 @onready var waveText = $CanvasLayer/Label
 
-var WaveOne = {"enemies": [GHOST], "maxEnemies": 105}
+var WaveOne = {"enemies": [MINOTAUR], "maxEnemies": 105}
 var WaveTwo = {"enemies": [GHOST, HARPEE], "maxEnemies": 8}
 var WaveThree = {"enemies": [GHOST, HARPEE, CYCLOPS], "maxEnemies": 55}
 var WaveFour = {"enemies": [GHOST, HARPEE, CYCLOPS, MINOTAUR], "maxEnemies": 75}
@@ -128,4 +128,4 @@ func startNextWave():
 
 
 func _on_pickup_spawner_timeout():
-	spawn_pickup()
+	pass

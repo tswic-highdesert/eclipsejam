@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1qxio7dt3j5g"]
-
-[ext_resource type="PackedScene" uid="uid://cxbe0sdohpp3a" path="res://Enemies/melee_parent.tscn" id="1_4vc4x"]
-
-[node name="Ghost" instance=ExtResource("1_4vc4x")]
-scale = Vector2(0.367, 0.383)
-
-[node name="Sprite2D" parent="." index="0"]
-modulate = Color(1, 0.192157, 0, 1)

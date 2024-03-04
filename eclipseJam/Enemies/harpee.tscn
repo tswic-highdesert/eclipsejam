@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://hqu7v5bkhffy"]
-
-[ext_resource type="PackedScene" uid="uid://b2ml2ab3r0cew" path="res://Enemies/RangedParent.tscn" id="1_hj3sd"]
-
-[node name="Harpee" instance=ExtResource("1_hj3sd")]
-aggroSpeed = 115

@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-@export var normalSpeed = 75
-@export var aggroSpeed = 115
+@export var normalSpeed = 250
+@export var aggroSpeed = 350
 
 @onready var stats = $EnemyStats
 

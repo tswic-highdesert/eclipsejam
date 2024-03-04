@@ -6,23 +6,24 @@ const molotov = preload("res://Projectiles/MolotovProjectile.tscn")
 
 var playerStats = Global.PlayerStats
 var canFire = true
-var currentWeapon = clamp(1,1,5)
+var currentWeapon = 1
 
 
 @export var speed = 1
 @export var friction = 0.02
 @onready var anim_player = $AnimationPlayer
 @onready var sprite = $Player
-#@onready var weapon1 = $Player/WeaponArm
-@onready var weapon2 = $RayCast2D
+@onready var weapon1 = $Player/Unarmed
+@onready var weapon2 = $Player/Gun
+@onready var weapon3 = $Player/Staff
 
 func _ready():
 	Global.player = self
 	if currentWeapon == 1:
-		#weapon1.visible = true
+		weapon1.visible = true
 		weapon2.visible = false
 	elif currentWeapon == 2:
-		#weapon1.visible = false
+		weapon1.visible = false
 		weapon2.visible = true
 		
 func _physics_process(delta):
@@ -45,7 +46,7 @@ func calc_movement(delta):
 
 func calc_anims():
 	if velocity.length() > 0.05:
-		anim_player.play("run")
+		anim_player.play("walk")
 	else:
 		anim_player.play("idle")
 
@@ -63,12 +64,11 @@ func spawn_ground_effects():
 func look_rotation():
 	#Gets the mouse location and sets the muzzle rotation to match
 	var look_vector = get_global_mouse_position() - global_position
-	$RayCast2D.global_rotation = atan2(look_vector.y, look_vector.x) - PI/2
+	weapon1.global_rotation = atan2(look_vector.y, look_vector.x)
 
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			print("Hi Mark")
 			if currentWeapon == 2:
 				fire_bullet()
 				

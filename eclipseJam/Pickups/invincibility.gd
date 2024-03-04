@@ -15,6 +15,7 @@ func _process(delta):
 
 
 func _on_body_entered(body):
+	print(" ")
 	playerStats = Global.PlayerStats.health
 	originalHealth = playerStats.health
 	playerStats.health = invinHealth

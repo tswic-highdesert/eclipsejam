@@ -20,11 +20,17 @@ var currentWeapon = 1
 func _ready():
 	Global.player = self
 	if currentWeapon == 1:
-		weapon1.visible = true
-		weapon2.visible = false
+		weapon1.disabled = true
+		weapon2.disabled = false
+		weapon3.disabled = false
 	elif currentWeapon == 2:
-		weapon1.visible = false
-		weapon2.visible = true
+		weapon1.disabled = false
+		weapon2.disabled = true
+		weapon3.disabled = false
+	elif currentWeapon == 3:
+		weapon1.disabled == false
+		weapon2.disabled == false
+		weapon3.disabled == true
 		
 func _physics_process(delta):
 	flip()
@@ -73,26 +79,32 @@ func _input(event):
 				fire_bullet()
 				
 	elif InputEventKey:
-		# Check for mouse wheel movement
 		if event.is_action_pressed("slot_one"):
 			switch_weapon(1)
 			print(currentWeapon)
 		elif event.is_action_pressed("slot_two"):
 			switch_weapon(2)
 			print(currentWeapon)
-		elif event.is_action_pressed("throw_molotov"):
-			throw_molotov()
-			print("throw!")
+		#elif event.is_action_pressed("throw_molotov"):
+			#throw_molotov()
+			#print("throw!")
 		
 func switch_weapon(newWeapon):
 	if newWeapon == 1:
-		#weapon1.visible = true
-		weapon2.visible = false
+		weapon1.disabled = true
+		weapon2.disabled = false
+		weapon3.disabled = false
 		currentWeapon = 1
 	elif newWeapon == 2:
-		#weapon1.visible = false
-		weapon2.visible = true
+		weapon1.disabled = false
+		weapon2.disabled = true
+		weapon3.disabled = false
 		currentWeapon = 2
+	elif newWeapon == 3:
+		weapon1.disabled = false
+		weapon2.disabled = false
+		weapon3.disabled = true
+		currentWeapon = 3
 	pass
 
 func melee_attack():
@@ -107,33 +119,15 @@ func fire_bullet():
 	canFire = false
 	pass
 
-func throw_molotov():
-	if playerStats.molotovCount > 0:
-		var newMolotov = Global.instance_scene_on_main(molotov, $RayCast2D/FireLocation.global_position)
-		var targetLoc = (get_local_mouse_position())
-		newMolotov.direction = (get_local_mouse_position())
-		if newMolotov.position == targetLoc:
-			pass
+#func throw_molotov():
+	#if playerStats.molotovCount > 0:
+		#var newMolotov = Global.instance_scene_on_main(molotov, $RayCast2D/FireLocation.global_position)
+		#var targetLoc = (get_local_mouse_position())
+		#newMolotov.direction = (get_local_mouse_position())
+		#if newMolotov.position == targetLoc:
+			#pass
 			#molotov.CollisionShape2D/FireAOE
 	
-		
-		
-		
-		#var newMolotov = Global.instance_scene_on_main(molotov, $RayCast2D/FireLocation.global_position)
-		#if newMolotov is MolotovProjectile:
-			#var mouse_position = get_local_mouse_position()
-#
-			## Check if mouse_position is not Nil
-			#if mouse_position != null:
-				#newMolotov.target_position = mouse_position
-				#newMolotov.initial_position = $RayCast2D/FireLocation.global_position
-				#get_parent().add_child(newMolotov)
-
-
-#func throw_molotov():
-	#if (playerStats.molotovCount > 0):
-		#var molotov = Global.instance_scene_on_main(molotov, $RayCast2D/FireLocation.global_position)
-		#molotov.direction = (get_local_mouse_position())
 
 func _on_timer_timeout():
 	canFire = true

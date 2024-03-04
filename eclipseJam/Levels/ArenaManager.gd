@@ -14,9 +14,9 @@ const HARPEE = preload("res://Enemies/harpee.tscn")
 const MEDUSA = preload("res://Enemies/medusa.tscn")
 const MINOTAUR = preload("res://Enemies/minotaur.tscn")
 
-const INVICIBILITY_PICKUP = preload
-const MOLOTOV_PICKUP = preload
-const HEALTH_PICKUP = preload
+#const INVICIBILITY_PICKUP = preload
+#const MOLOTOV_PICKUP = preload
+#onst HEALTH_PICKUP = preload
 
 
 @onready var spawnArea1 = $"Spawn Area 1"

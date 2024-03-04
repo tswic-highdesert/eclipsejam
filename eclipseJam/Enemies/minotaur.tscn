@@ -43,20 +43,19 @@ _data = {
 [node name="Minotaur" instance=ExtResource("1_d31pe")]
 
 [node name="Sprite2D" parent="." index="0"]
-scale = Vector2(1, 1)
 texture = ExtResource("2_jiyps")
 hframes = 5
 vframes = 2
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(-1.5, 1.3725)
-scale = Vector2(0.555, 0.555)
+position = Vector2(-20.5, 5)
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2(-7, 15)
+position = Vector2(-20.5, -0.5)
 
 [node name="aggroRadius" parent="." index="4"]
-scale = Vector2(13.36, 13.36)
+rotation = 7.47295e-05
+scale = Vector2(150, 150)
 
 [node name="CollisionShape2D" parent="aggroRadius" index="0"]
 debug_color = Color(0.215686, 0.298039, 0.337255, 0.419608)

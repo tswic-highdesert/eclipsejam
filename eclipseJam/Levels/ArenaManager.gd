@@ -42,6 +42,7 @@ func setWave(wave):
 
 func spawn_enemies():
 	var selectedSpawnArea = chooseSpawnArea()
+	print ("SET")
 	
 	var center = selectedSpawnArea.position
 	var size = selectedSpawnArea.get_node("CollisionShape2D").shape.extents

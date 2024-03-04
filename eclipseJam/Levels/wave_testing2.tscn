@@ -61,6 +61,7 @@ theme = SubResource("Theme_mrw2r")
 theme_override_fonts/font = SubResource("SystemFont_yuolu")
 theme_override_font_sizes/font_size = 21
 text = "Wave 1"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="waveCooldown" to="." method="_on_wave_cooldown_timeout"]
 [connection signal="timeout" from="enemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

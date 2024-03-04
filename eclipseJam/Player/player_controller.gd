@@ -20,17 +20,23 @@ var currentWeapon = 1
 func _ready():
 	Global.player = self
 	if currentWeapon == 1:
-		weapon1.disabled = true
-		weapon2.disabled = false
-		weapon3.disabled = false
+		weapon1.visible = true
+		$Player/Unarmed/UnarmedCollision.disabled = false
+		weapon2.visible = false
+		weapon3.visible = false
+		$Player/Staff/StaffCollision.disabled = false
 	elif currentWeapon == 2:
-		weapon1.disabled = false
-		weapon2.disabled = true
-		weapon3.disabled = false
+		weapon1.visible = false
+		$Player/Unarmed/UnarmedCollision.disabled = false
+		weapon2.visible = false
+		weapon3.visible = false
+		$Player/Staff/StaffCollision.disabled = true
 	elif currentWeapon == 3:
-		weapon1.disabled == false
-		weapon2.disabled == false
-		weapon3.disabled == true
+		weapon1.visible = true
+		$Player/Unarmed/UnarmedCollision.disabled = false
+		weapon2.visible = false
+		weapon3.visible = true
+		$Player/Staff/StaffCollision.disabled = false
 		
 func _physics_process(delta):
 	flip()
@@ -85,25 +91,34 @@ func _input(event):
 		elif event.is_action_pressed("slot_two"):
 			switch_weapon(2)
 			print(currentWeapon)
+		elif event.is_action_pressed("slot_three"):
+			switch_weapon(3)
+			print(currentWeapon)
 		#elif event.is_action_pressed("throw_molotov"):
 			#throw_molotov()
 			#print("throw!")
 		
 func switch_weapon(newWeapon):
 	if newWeapon == 1:
-		weapon1.disabled = true
-		weapon2.disabled = false
-		weapon3.disabled = false
+		weapon1.visible = true
+		$Player/Unarmed/UnarmedCollision.disabled = false
+		weapon2.visible = false
+		weapon3.visible = false
+		$Player/Staff/StaffCollision.disabled = true
 		currentWeapon = 1
 	elif newWeapon == 2:
-		weapon1.disabled = false
-		weapon2.disabled = true
-		weapon3.disabled = false
+		weapon1.visible = false
+		$Player/Unarmed/UnarmedCollision.disabled = false
+		weapon2.visible = true
+		weapon3.visible = false
+		$Player/Staff/StaffCollision.disabled = true
 		currentWeapon = 2
 	elif newWeapon == 3:
-		weapon1.disabled = false
-		weapon2.disabled = false
-		weapon3.disabled = true
+		weapon1.visible = false
+		$Player/Unarmed/UnarmedCollision.disabled = false
+		weapon2.visible = false
+		weapon3.visible = true
+		$Player/Staff/StaffCollision.disabled = false
 		currentWeapon = 3
 	pass
 

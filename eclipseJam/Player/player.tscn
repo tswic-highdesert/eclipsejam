@@ -1,9 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://yi5w2jbg0rcc"]
+[gd_scene load_steps=12 format=3 uid="uid://yi5w2jbg0rcc"]
 
 [ext_resource type="Script" path="res://Player/player_controller.gd" id="1_j451e"]
 [ext_resource type="Texture2D" uid="uid://dyde0fr07wtor" path="res://Art/shadow.png" id="2_jwutx"]
 [ext_resource type="Texture2D" uid="uid://3axmpw8hcxxl" path="res://Art/Old Man.png" id="3_evfdi"]
 [ext_resource type="Texture2D" uid="uid://cd2vrn5yjxw8y" path="res://Art/player arm.png" id="3_rrio7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ek11d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xp6k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gs0k"]
 size = Vector2(113.125, 287)
@@ -197,6 +201,9 @@ texture = ExtResource("3_rrio7")
 offset = Vector2(185, 0)
 hframes = 5
 
+[node name="UnarmedCollision" type="CollisionShape2D" parent="Player/Unarmed"]
+shape = SubResource("RectangleShape2D_ek11d")
+
 [node name="Gun" type="Sprite2D" parent="Player"]
 visible = false
 show_behind_parent = true
@@ -216,6 +223,9 @@ texture = ExtResource("3_rrio7")
 offset = Vector2(185, 0)
 hframes = 5
 frame = 3
+
+[node name="StaffCollision" type="CollisionShape2D" parent="Player/Staff"]
+shape = SubResource("RectangleShape2D_2xp6k")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(-5.4375, 9.5)

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b34gux64bjvva"]
+
+[ext_resource type="Script" path="res://Pickups/invincibility.gd" id="2_rlr1j"]
+
+[node name="invincibility"]
+script = ExtResource("2_rlr1j")
+
+[node name="Timer" type="Timer" parent="." index="2"]
+wait_time = 7.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -14,12 +14,16 @@ const HARPEE = preload("res://Enemies/harpee.tscn")
 const MEDUSA = preload("res://Enemies/medusa.tscn")
 const MINOTAUR = preload("res://Enemies/minotaur.tscn")
 
+const INVICIBILITY_PICKUP = preload
+const MOLOTOV_PICKUP = preload
+const HEALTH_PICKUP = preload
+
 
 @onready var spawnArea1 = $"Spawn Area 1"
 @onready var spawnArea2 = $"Spawn Area 2"
 @onready var waveText = $CanvasLayer/Label
 
-var WaveOne = {"enemies": [MINOTAUR], "maxEnemies": 5}
+var WaveOne = {"enemies": [GHOST], "maxEnemies": 105}
 var WaveTwo = {"enemies": [GHOST, HARPEE], "maxEnemies": 8}
 var WaveThree = {"enemies": [GHOST, HARPEE, CYCLOPS], "maxEnemies": 55}
 var WaveFour = {"enemies": [GHOST, HARPEE, CYCLOPS, MINOTAUR], "maxEnemies": 75}
@@ -42,7 +46,6 @@ func setWave(wave):
 
 func spawn_enemies():
 	var selectedSpawnArea = chooseSpawnArea()
-	print ("SET")
 	
 	var center = selectedSpawnArea.position
 	var size = selectedSpawnArea.get_node("CollisionShape2D").shape.extents

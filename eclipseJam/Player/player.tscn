@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cd2vrn5yjxw8y" path="res://Art/player arm.png" id="3_rrio7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ek11d"]
+size = Vector2(64.7206, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xp6k"]
 
@@ -202,7 +203,10 @@ offset = Vector2(185, 0)
 hframes = 5
 
 [node name="UnarmedCollision" type="CollisionShape2D" parent="Player/Unarmed"]
+position = Vector2(133.333, 14.4144)
+scale = Vector2(3.30631, 5.18018)
 shape = SubResource("RectangleShape2D_ek11d")
+disabled = true
 
 [node name="Gun" type="Sprite2D" parent="Player"]
 visible = false
@@ -225,7 +229,10 @@ hframes = 5
 frame = 3
 
 [node name="StaffCollision" type="CollisionShape2D" parent="Player/Staff"]
+position = Vector2(174.775, 16.2162)
+scale = Vector2(16.9161, 8.08877)
 shape = SubResource("RectangleShape2D_2xp6k")
+disabled = true
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(-5.4375, 9.5)

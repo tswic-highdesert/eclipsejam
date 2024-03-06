@@ -15,16 +15,16 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	print(" ")
-	playerStats = Global.PlayerStats.health
 	originalHealth = playerStats.health
 	playerStats.health = invinHealth
+	print("Invincible!,", playerStats.health)
 	$Timer.start()
-	$CollisionShape2D.disable
-	$Sprite2D.invisible
+	$CollisionShape2D.disabled = true
+	$Sprite2D.visible = false
 
 
 func _on_timer_timeout():
 	playerStats.health = originalHealth
+	print("Vincible!", playerStats.health)
 	queue_free()
 	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bapr21mnf8pot"]
+[gd_scene load_steps=15 format=3 uid="uid://bapr21mnf8pot"]
 
 [ext_resource type="Texture2D" uid="uid://b5tyglfxxl46" path="res://Art/World/background sky.jpg" id="1_1rim3"]
 [ext_resource type="Script" path="res://Levels/ArenaManager.gd" id="1_ockfo"]
@@ -6,6 +6,22 @@
 [ext_resource type="Texture2D" uid="uid://clif4rkfv0auq" path="res://Art/World/Eclipse Sun.png" id="3_57870"]
 [ext_resource type="Texture2D" uid="uid://bceu8k1vm3ecl" path="res://Art/World/buildings.png" id="5_uujx8"]
 [ext_resource type="Texture2D" uid="uid://bvvhyb117mqqc" path="res://Art/World/ground.png" id="6_6xymi"]
+[ext_resource type="PackedScene" uid="uid://befollny6r1wy" path="res://Pickups/invincibility.tscn" id="7_eafu0"]
+
+[sub_resource type="Animation" id="Animation_tkbc5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("World Art/EclipseSun:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_k8wd4"]
 resource_name = "new_animation"
@@ -22,21 +38,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, -6.28319]
-}
-
-[sub_resource type="Animation" id="Animation_tkbc5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("World Art/EclipseSun:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uubds"]
@@ -196,6 +197,14 @@ metadata/_edit_use_anchors_ = true
 
 [node name="pickupSpawner" type="Timer" parent="."]
 autostart = true
+
+[node name="invincibility" parent="." instance=ExtResource("7_eafu0")]
+position = Vector2(545, 1174)
+scale = Vector2(0.617554, 0.615466)
+
+[node name="invincibility2" parent="." instance=ExtResource("7_eafu0")]
+position = Vector2(1288, 1075)
+scale = Vector2(0.678174, 0.675882)
 
 [connection signal="timeout" from="waveCooldown" to="." method="_on_wave_cooldown_timeout"]
 [connection signal="timeout" from="enemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

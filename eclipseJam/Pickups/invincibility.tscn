@@ -5,3 +5,7 @@
 
 [node name="invincibility" instance=ExtResource("1_wus5c")]
 script = ExtResource("2_rlr1j")
+
+[node name="Timer" type="Timer" parent="." index="2"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

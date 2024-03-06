@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Levels/ArenaManager.gd" id="1_lbqpw"]
 [ext_resource type="PackedScene" uid="uid://yi5w2jbg0rcc" path="res://Player/player.tscn" id="2_leqf1"]
 [ext_resource type="PackedScene" uid="uid://crjolikxpii4v" path="res://Geometry/WallBase.tscn" id="3_k1cal"]
-[ext_resource type="PackedScene" uid="uid://c33iu5tamesjk" path="res://Pickups/molotov.tscn" id="4_281v2"]
+[ext_resource type="PackedScene" uid="uid://ca6cu4n7pved4" path="res://Pickups/healthpickup.tscn" id="4_6ncsw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ribce"]
 size = Vector2(170.5, 349.5)
@@ -14,6 +14,7 @@ script = ExtResource("1_lbqpw")
 [node name="Player" parent="." instance=ExtResource("2_leqf1")]
 position = Vector2(508, 127)
 rotation = 0.00247443
+scale = Vector2(0.221778, 0.201738)
 collision_mask = 14
 
 [node name="RemoteTransform2D" parent="Player" index="3"]
@@ -22,6 +23,7 @@ remote_path = NodePath("../../Camera2D")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(508, 127)
 rotation = 0.00247443
+scale = Vector2(0.221778, 0.201738)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
@@ -68,8 +70,8 @@ scale = Vector2(0.454981, 5.12692)
 collision_layer = 14
 collision_mask = 14
 
-[node name="Molotov" parent="." instance=ExtResource("4_281v2")]
-position = Vector2(605, 162)
+[node name="healthpickup" parent="." instance=ExtResource("4_6ncsw")]
+position = Vector2(703, 229)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 

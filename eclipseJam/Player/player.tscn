@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://yi5w2jbg0rcc"]
+[gd_scene load_steps=13 format=3 uid="uid://yi5w2jbg0rcc"]
 
 [ext_resource type="Script" path="res://Player/player_controller.gd" id="1_j451e"]
 [ext_resource type="Texture2D" uid="uid://dyde0fr07wtor" path="res://Art/shadow.png" id="2_jwutx"]
 [ext_resource type="Texture2D" uid="uid://3axmpw8hcxxl" path="res://Art/Old Man.png" id="3_evfdi"]
 [ext_resource type="Texture2D" uid="uid://cd2vrn5yjxw8y" path="res://Art/player arm.png" id="3_rrio7"]
+[ext_resource type="PackedScene" uid="uid://ccqo6da7ewy15" path="res://Enemies/hurtbox.tscn" id="5_qh66n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ek11d"]
 size = Vector2(64.7206, 20)
@@ -179,11 +180,12 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+position = Vector2(0, -1)
 collision_layer = 2049
 collision_mask = 2049
 motion_mode = 1
 script = ExtResource("1_j451e")
-speed = 5
+speed = 25
 
 [node name="Shadow" type="Sprite2D" parent="."]
 position = Vector2(0, 7.88)
@@ -262,4 +264,11 @@ libraries = {
 }
 autoplay = "walk"
 
+[node name="Hurtbox" parent="." instance=ExtResource("5_qh66n")]
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+scale = Vector2(4.875, 7.195)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="Hurtbox"]

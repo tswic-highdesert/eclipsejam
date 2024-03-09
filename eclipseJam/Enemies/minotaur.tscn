@@ -1,42 +1,81 @@
-[gd_scene load_steps=4 format=3 uid="uid://cac5kt2su1jqv"]
+[gd_scene load_steps=9 format=3 uid="uid://cac5kt2su1jqv"]
 
-[ext_resource type="PackedScene" uid="uid://c51rd3m88a1r3" path="res://Enemies/aoe_enemy.tscn" id="1_62dgm"]
 [ext_resource type="Script" path="res://Enemies/Minotaur.gd" id="2_2qu0m"]
+[ext_resource type="Texture2D" uid="uid://cr1wdo23n7qcc" path="res://icon.svg" id="2_w2l1i"]
+[ext_resource type="PackedScene" uid="uid://ccqo6da7ewy15" path="res://Enemies/hurtbox.tscn" id="3_u3n5y"]
+[ext_resource type="PackedScene" uid="uid://2h8t4pr1dlvi" path="res://Enemies/EnemyStats.tscn" id="4_svjfl"]
+[ext_resource type="PackedScene" uid="uid://cmqrdh5fbso0u" path="res://Enemies/hitbox.tscn" id="5_wxdjt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0f8g"]
+size = Vector2(36, 118)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vtcqw"]
 
-[node name="Minotaur" instance=ExtResource("1_62dgm")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_vheqc"]
+
+[node name="Minotaur" type="CharacterBody2D"]
 scale = Vector2(1.64447, 1.64447)
-collision_mask = 1
+collision_layer = 2
 script = ExtResource("2_2qu0m")
 
-[node name="Hurtbox" parent="." index="3"]
-collision_layer = 2
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.421875, 0.421875)
+texture = ExtResource("2_w2l1i")
 
-[node name="ChargeCooldown" type="Timer" parent="." index="7"]
-wait_time = 5.0
-one_shot = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+scale = Vector2(1.725, 0.515)
+shape = SubResource("RectangleShape2D_l0f8g")
 
-[node name="ChargeRange" type="Area2D" parent="." index="8"]
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="Hitbox" parent="." instance=ExtResource("5_wxdjt")]
+scale = Vector2(1.675, 3.165)
+collision_layer = 16
+collision_mask = 32
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_u3n5y")]
+
+[node name="ChargeRange" type="Area2D" parent="."]
 light_mask = 2
 visibility_layer = 2
+scale = Vector2(1, 1)
 collision_layer = 2048
 
-[node name="ChargeTrigger" type="CollisionShape2D" parent="ChargeRange" index="0"]
+[node name="ChargeTrigger" type="CollisionShape2D" parent="ChargeRange"]
 light_mask = 30
 visibility_layer = 30
 position = Vector2(0.5, 0)
-scale = Vector2(11.64, 11.64)
+scale = Vector2(32.77, 32.77)
 shape = SubResource("CircleShape2D_vtcqw")
 debug_color = Color(0.631373, 0.529412, 0, 0.419608)
 
-[node name="RunToTimer" type="Timer" parent="." index="9"]
+[node name="aggroRadius" type="Area2D" parent="."]
+visible = false
+scale = Vector2(21, 21)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="aggroRadius"]
+shape = SubResource("CircleShape2D_vheqc")
+
+[node name="EnemyStats" parent="." instance=ExtResource("4_svjfl")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="ChargeUp" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="timeout" from="ChargeCooldown" to="." method="_on_charge_timer_timeout"]
+[node name="ChargeCooldown" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="hit" from="Hurtbox" to="." method="_on_hurtbox_hit"]
 [connection signal="area_entered" from="ChargeRange" to="." method="_on_charge_range_area_entered"]
 [connection signal="body_entered" from="ChargeRange" to="." method="_on_charge_range_body_entered"]
 [connection signal="body_exited" from="ChargeRange" to="." method="_on_charge_range_body_exited"]
-[connection signal="timeout" from="RunToTimer" to="." method="_on_run_to_timer_timeout"]
+[connection signal="body_entered" from="aggroRadius" to="." method="_on_aggro_radius_body_entered"]
+[connection signal="timeout" from="ChargeUp" to="." method="_on_charge_up_timeout"]
+[connection signal="timeout" from="ChargeCooldown" to="." method="_on_charge_timer_timeout"]
 
+[editable path="Hitbox"]
 [editable path="Hurtbox"]

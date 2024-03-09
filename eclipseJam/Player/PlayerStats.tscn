@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8sj7jxop34g2"]
+[gd_scene load_steps=2 format=3 uid="uid://rsxkqmwnw7oq"]
 
 [ext_resource type="Script" path="res://Player/PlayerStats.gd" id="1_qmocn"]
 

@@ -153,14 +153,18 @@ debug_color = Color(0.160784, 0, 0.0470588, 0.419608)
 position = Vector2(-3088, 586.001)
 rotation = 0.784567
 scale = Vector2(3.795, 3.795)
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawn Area 1"]
 position = Vector2(-4, -2)
 shape = SubResource("RectangleShape2D_ywyvh")
 
 [node name="Pickup Area" type="Area2D" parent="."]
-position = Vector2(67, 1562)
+position = Vector2(107, 6300)
 scale = Vector2(22.49, 7.335)
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup Area"]
 position = Vector2(-4, -2)
@@ -170,6 +174,8 @@ shape = SubResource("RectangleShape2D_ywyvh")
 position = Vector2(2856, 557)
 rotation = -0.649735
 scale = Vector2(3.795, 3.795)
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawn Area 2"]
 position = Vector2(-4, -2)

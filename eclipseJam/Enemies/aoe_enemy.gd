@@ -3,11 +3,11 @@ var inRange = false
 var canFire = false
 
 func _physics_process(delta):
-	chase_player(delta)
+	chase_player()
 	#if inRange == true:
 		
 	 
-func chase_player(delta):
+func chase_player():
 	velocity = (Global.player.global_position-global_position).normalized() * currentSpeed
 	move_and_slide()
 	

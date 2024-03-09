@@ -5,3 +5,5 @@
 
 [node name="AOEEnemy" instance=ExtResource("1_en3q3")]
 script = ExtResource("2_bppwl")
+
+[editable path="Hurtbox"]

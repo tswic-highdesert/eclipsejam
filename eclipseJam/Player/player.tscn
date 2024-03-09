@@ -179,6 +179,8 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2049
+collision_mask = 2049
 motion_mode = 1
 script = ExtResource("1_j451e")
 speed = 5

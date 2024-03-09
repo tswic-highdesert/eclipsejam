@@ -1,8 +1,10 @@
 extends "res://Enemies/ParentEnemy.gd"
+var inRange = false
+var canFire = false
 
 func _physics_process(delta):
 	chase_player(delta)
-	if inRange == true:
+	#if inRange == true:
 		
 	 
 func chase_player(delta):
@@ -25,6 +27,7 @@ func check_fire_status():
 		canFire = true
 	elif inRange == false:
 		canFire = false
+		
 		
 
 

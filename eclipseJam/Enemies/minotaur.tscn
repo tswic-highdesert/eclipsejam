@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://cac5kt2su1jqv"]
+
+[ext_resource type="PackedScene" uid="uid://c51rd3m88a1r3" path="res://Enemies/aoe_enemy.tscn" id="1_62dgm"]
+[ext_resource type="Script" path="res://Enemies/Minotaur.gd" id="2_2qu0m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vtcqw"]
+
+[node name="Minotaur" instance=ExtResource("1_62dgm")]
+scale = Vector2(1.64447, 1.64447)
+collision_mask = 1
+script = ExtResource("2_2qu0m")
+
+[node name="Hurtbox" parent="." index="3"]
+collision_layer = 2
+
+[node name="ChargeCooldown" type="Timer" parent="." index="7"]
+wait_time = 5.0
+one_shot = true
+
+[node name="ChargeRange" type="Area2D" parent="." index="8"]
+light_mask = 2
+visibility_layer = 2
+collision_layer = 2048
+collision_mask = 2048
+
+[node name="ChargeTrigger" type="CollisionShape2D" parent="ChargeRange" index="0"]
+light_mask = 30
+visibility_layer = 30
+position = Vector2(0.5, 0)
+scale = Vector2(11.64, 11.64)
+shape = SubResource("CircleShape2D_vtcqw")
+debug_color = Color(0.631373, 0.529412, 0, 0.419608)
+
+[node name="RunToTimer" type="Timer" parent="." index="9"]
+one_shot = true
+
+[connection signal="timeout" from="ChargeCooldown" to="." method="_on_charge_timer_timeout"]
+[connection signal="area_entered" from="ChargeRange" to="." method="_on_charge_range_area_entered"]
+[connection signal="body_entered" from="ChargeRange" to="." method="_on_charge_range_body_entered"]
+[connection signal="timeout" from="RunToTimer" to="." method="_on_run_to_timer_timeout"]
+
+[editable path="Hurtbox"]

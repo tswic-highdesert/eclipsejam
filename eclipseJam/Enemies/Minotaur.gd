@@ -28,6 +28,7 @@ func _physics_process(delta):
 	anim_handler()
 	
 	if self.health <= 0:
+		SignalManager.enemy_destroyed.emit(self)
 		queue_free()
 
 func anim_handler():

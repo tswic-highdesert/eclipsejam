@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://xm5dt23nb8g4"]
+
+[ext_resource type="PackedScene" uid="uid://bb76lh2hgpb3r" path="res://Enemies/ParentEnemy.tscn" id="1_lo3gd"]
+[ext_resource type="Script" path="res://Enemies/GhostEnemy.gd" id="2_qt37j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j12f8"]
+
+[node name="GhostEnemy" instance=ExtResource("1_lo3gd")]
+scale = Vector2(1.64067, 1.64067)
+collision_mask = 1
+script = ExtResource("2_qt37j")
+
+[node name="PlayerAttack" type="Area2D" parent="." index="7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAttack" index="0"]
+position = Vector2(-2.38419e-07, -1)
+scale = Vector2(3.41868, -3.61092)
+shape = SubResource("RectangleShape2D_j12f8")
+
+[node name="AttackCooldown" type="Timer" parent="." index="8"]
+
+[connection signal="body_entered" from="PlayerAttack" to="." method="_on_player_attack_body_entered"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
+
+[editable path="Hurtbox"]

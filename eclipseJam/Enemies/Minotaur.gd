@@ -14,8 +14,6 @@ var isCharging = false
 
 func _physics_process(delta):
 	chase_player(delta)
-	print(currentSpeed)
-		
 
 func chase_player(delta):
 	velocity = (Global.player.global_position-global_position).normalized() * currentSpeed
@@ -28,55 +26,54 @@ func flip():
 	else:
 		$Sprite2D.set_flip_h(false)
 
+
+
 func _on_aggro_radius_body_entered(body):
-	currentSpeed = aggroSpeed
-	
-	
+	pass
+	#currentSpeed = aggroSpeed
+
 
 func _on_hurtbox_hit(damage):
 	stats.health - damage
 	
 func charge_player():
-	$ChargeCooldown.start();
-	currentSpeed = chargeSpeed
-	var playerRelativePos = Global.player.global_position - global_position
-	var offset = playerRelativePos.normalized() * Vector2(500, 500)  # Adjust the offset as needed
-	targetLoc = Global.player.global_position + offset
-	velocity = (targetLoc - global_position).normalized() * chargeSpeed
-	#if position == targetLoc:
-		#currentSpeed = 0
-		#pass
+	isCharging = true
 	
+	currentSpeed = chargeSpeed
+	
+	
+	#var playerRelativePos = Global.player.global_position - global_position
+	#var offset = playerRelativePos.normalized() * Vector2(500, 500)  # Adjust the offset as needed
+	#targetLoc = Global.player.global_position + offset
+	#velocity = (targetLoc - global_position).normalized() * chargeSpeed
+	
+	
+	$ChargeCooldown.start();
+
+
+func _on_charge_cooldown_timeout():
+	if currentSpeed == chargeSpeed:
+		currentSpeed = 0
+		$ChargeCooldown.start()
+	elif currentSpeed == 0:
+		currentSpeed = normalSpeed
+	isCharging = false
+
+
 func _on_charge_range_body_entered(body):
 	if !isCharging:
 		print(Global.player.global_position)
 		print(position)
-		inRange = true
 		
 		currentSpeed = 0
-		
 		$RunToTimer.start();
-		#$aggroRadius.monitoring = false
-		#$aggroRadius/CollisionShape2D.disabled = true
-		#$ChargeRange.monitoring = false
-		#$ChargeRange/ChargeTrigger.disabled = true
-	
-func _on_charge_cooldown_timeout():
-	if currentSpeed == chargeSpeed:
-		currentSpeed = 0
-		isCharging = false
-		$ChargeCooldown.start()
-	elif currentSpeed == 0:
-		isCharging = false
-		currentSpeed = normalSpeed
-	#$aggroRadius.monitoring = true
-	#$aggroRadius/CollisionShape2D.disabled = false
-	#$ChargeRange.monitoring = true
-	#$ChargeRange/ChargeTrigger.disabled = false
-
 
 func _on_run_to_timer_timeout():
-	print(Global.player.global_position)
 	charge_player()
-	isCharging = true
-	pass # Replace with function body.
+
+	
+	
+	isCharging = false
+
+
+

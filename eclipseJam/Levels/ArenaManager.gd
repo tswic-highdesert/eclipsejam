@@ -13,7 +13,7 @@ const TEMP = preload("res://Enemies/ParentEnemy.tscn")
 #const GHOST = preload("res://Enemies/ghost.tscn")
 #const HARPEE = preload("res://Enemies/harpee.tscn")
 #const MEDUSA = preload("res://Enemies/medusa.tscn")
-#const MINOTAUR = preload("res://Enemies/minotaur.tscn")
+const MINOTAUR = preload("res://Enemies/minotaur.tscn")
 
 const INVICIBILITY_PICKUP = preload("res://Pickups/invincibility.tscn")
 const HEALTH_PICKUP = preload("res://Pickups/healthpickup.tscn")
@@ -24,11 +24,11 @@ const HEALTH_PICKUP = preload("res://Pickups/healthpickup.tscn")
 @onready var pickupArea = $"Pickup Area"
 @onready var waveText = $CanvasLayer/Label
 
-var WaveOne = {"enemies": [TEMP], "maxEnemies": 5}
-var WaveTwo = {"enemies": [TEMP, TEMP], "maxEnemies": 8}
-var WaveThree = {"enemies": [TEMP, TEMP, TEMP], "maxEnemies": 55}
-var WaveFour = {"enemies": [TEMP, TEMP, TEMP, TEMP], "maxEnemies": 75}
-var WaveFive = {"enemies": [TEMP, TEMP, TEMP, TEMP, TEMP], "maxEnemies": 105}
+var WaveOne = {"enemies": [MINOTAUR], "maxEnemies": 1}
+var WaveTwo = {"enemies": [MINOTAUR], "maxEnemies": 2}
+var WaveThree = {"enemies": [MINOTAUR], "maxEnemies": 3}
+var WaveFour = {"enemies": [MINOTAUR], "maxEnemies": 4}
+var WaveFive = {"enemies": [MINOTAUR], "maxEnemies": 5}
 
 var pickups = [HEALTH_PICKUP]
 
@@ -79,7 +79,6 @@ func spawn_pickup():
 	var pickupThatSpawns = pickups[0]
 	Global.instance_scene_on_main(pickupThatSpawns, positionInArea)
 	
-	print ("MADE IT")
 
 
 

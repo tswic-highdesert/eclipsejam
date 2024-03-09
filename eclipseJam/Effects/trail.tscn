@@ -1,12 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://qd8j81jghy5l"]
+[gd_scene load_steps=5 format=3 uid="uid://qd8j81jghy5l"]
 
 [ext_resource type="Script" path="res://Effects/particles.gd" id="1_mdxpp"]
 
+[sub_resource type="Gradient" id="Gradient_u46ut"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ip2n4"]
+gradient = SubResource("Gradient_u46ut")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gigvh"]
+lifetime_randomness = 0.2
 particle_flag_disable_z = true
 gravity = Vector3(0, 0, 0)
+color = Color(1, 1, 1, 0.509804)
+color_ramp = SubResource("GradientTexture1D_ip2n4")
 
 [node name="GPUParticles2D" type="GPUParticles2D"]
+scale = Vector2(42.57, 42.57)
 amount = 15
 process_material = SubResource("ParticleProcessMaterial_gigvh")
 lifetime = 1.5

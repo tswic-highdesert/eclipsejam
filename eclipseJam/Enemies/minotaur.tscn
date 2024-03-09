@@ -141,7 +141,7 @@ size = Vector2(36, 118)
 [sub_resource type="CircleShape2D" id="CircleShape2D_vheqc"]
 
 [node name="Minotaur" type="CharacterBody2D"]
-scale = Vector2(1.64447, 1.64447)
+scale = Vector2(2.5, 2.5)
 collision_layer = 2
 script = ExtResource("2_2qu0m")
 
@@ -168,7 +168,7 @@ shape = SubResource("RectangleShape2D_l0f8g")
 scale = Vector2(1.675, 3.165)
 collision_layer = 16
 collision_mask = 32
-knockbackIntensity = 12
+knockbackIntensity = 5
 
 [node name="Hurtbox" parent="." instance=ExtResource("3_u3n5y")]
 monitorable = false
@@ -182,8 +182,8 @@ collision_layer = 2048
 [node name="ChargeTrigger" type="CollisionShape2D" parent="ChargeRange"]
 light_mask = 30
 visibility_layer = 30
-position = Vector2(0.5, 0)
-scale = Vector2(32.77, 32.77)
+position = Vector2(22, -2.4)
+scale = Vector2(50, 50)
 shape = SubResource("CircleShape2D_vtcqw")
 debug_color = Color(0.631373, 0.529412, 0, 0.419608)
 

@@ -11,6 +11,9 @@ var isCharging = false
 var stunned = false
 
 
+#Health Code
+@export var max_health : int = 100
+@export var health : int = max_health
 
 
 func _physics_process(delta):
@@ -23,6 +26,9 @@ func _physics_process(delta):
 			$AnimationPlayer.speed_scale = 2
 	
 	anim_handler()
+	
+	if self.health <= 0:
+		queue_free()
 
 func anim_handler():
 	flip()
@@ -83,3 +89,12 @@ func _on_hitbox_area_entered(hurtbox):
 
 func _on_hurtbox_area_entered(hitbox):
 	stop_charging()
+	
+	var base_damage = hitbox.damage
+	self.health -= base_damage
+	print ("Enemy's Health: ", self.health)
+	
+	#knockback code
+	var attackDirection =  (self.global_position - hitbox.global_position).normalized()
+	var knockback = attackDirection
+	velocity += knockback * hitbox.knockbackIntensity

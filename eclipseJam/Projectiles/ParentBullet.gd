@@ -11,10 +11,9 @@ extends Area2D
 func _process(delta):
 	position += (direction * speed) * delta
 
-func _on_body_entered(body):
-	playerStats.health -= 1
-	queue_free()
-
-
 func _on_timer_timeout():
-	queue_free()
+	pass#queue_free()
+
+
+func _on_hitbox_area_entered(area):
+	pass#queue_free()

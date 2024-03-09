@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bapr21mnf8pot"]
+[gd_scene load_steps=14 format=3 uid="uid://bapr21mnf8pot"]
 
 [ext_resource type="Texture2D" uid="uid://b5tyglfxxl46" path="res://Art/World/background sky.jpg" id="1_1rim3"]
 [ext_resource type="Script" path="res://Levels/ArenaManager.gd" id="1_ockfo"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://clif4rkfv0auq" path="res://Art/World/Eclipse Sun.png" id="3_57870"]
 [ext_resource type="Texture2D" uid="uid://bceu8k1vm3ecl" path="res://Art/World/buildings.png" id="5_uujx8"]
 [ext_resource type="Texture2D" uid="uid://bvvhyb117mqqc" path="res://Art/World/ground.png" id="6_6xymi"]
-[ext_resource type="PackedScene" uid="uid://cac5kt2su1jqv" path="res://Enemies/minotaur.tscn" id="7_w0a22"]
 
 [sub_resource type="Animation" id="Animation_tkbc5"]
 length = 0.001
@@ -183,6 +182,7 @@ shape = SubResource("RectangleShape2D_ywyvh")
 
 [node name="waveCooldown" type="Timer" parent="."]
 wait_time = 5.0
+one_shot = true
 
 [node name="enemySpawnTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -203,10 +203,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="pickupSpawner" type="Timer" parent="."]
 autostart = true
-
-[node name="Minotaur" parent="." instance=ExtResource("7_w0a22")]
-position = Vector2(2245, 2030)
-scale = Vector2(2.48253, 2.48253)
 
 [connection signal="timeout" from="waveCooldown" to="." method="_on_wave_cooldown_timeout"]
 [connection signal="timeout" from="enemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

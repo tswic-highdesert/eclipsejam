@@ -41,6 +41,8 @@ var enemiesAlive = []
 func _ready():
 	setWave(WaveOne)
 	SignalManager.enemy_destroyed.connect(_on_enemy_destroyed)
+	
+	Music.play_song("gameplayLoop")
 
 func setWave(wave):
 	currentWave = wave

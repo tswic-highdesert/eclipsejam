@@ -97,7 +97,7 @@ position = Vector2(58, 1253)
 collision_mask = 8
 speed = 15
 
-[node name="RemoteTransform2D" parent="Player" index="3"]
+[node name="RemoteTransform2D" parent="Player" index="2"]
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -213,3 +213,4 @@ scale = Vector2(2.48253, 2.48253)
 [connection signal="timeout" from="pickupSpawner" to="." method="_on_pickup_spawner_timeout"]
 
 [editable path="Player"]
+[editable path="Player/Hurtbox"]

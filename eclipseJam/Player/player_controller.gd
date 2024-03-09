@@ -4,9 +4,13 @@ const DUST = preload("res://Effects/dust.tscn")
 const projectile = preload("res://Projectiles/ParentBullet.tscn")
 const molotov = preload("res://Projectiles/MolotovProjectile.tscn")
 
-var playerStats = Global.PlayerStats
+#var playerStats = Global.PlayerStats
 var canFire = true
 var currentWeapon = 1
+
+#Health Code
+@export var max_health : int = 100
+@export var health : int = max_health
 
 
 @export var speed = 1
@@ -159,7 +163,6 @@ func fire_bullet():
 		bullet.direction = (get_local_mouse_position())
 		$Timer.start()
 	canFire = false
-	pass
 
 #func throw_molotov():
 	#if playerStats.molotovCount > 0:
@@ -174,3 +177,14 @@ func fire_bullet():
 func _on_timer_timeout():
 	canFire = true
 	pass
+
+
+func _on_hurtbox_area_entered(hitbox):
+	var base_damage = hitbox.damage
+	self.health -= base_damage
+	print ("Player's Health: ", self.health)
+	
+	#knockback code
+	var attackDirection =  (self.global_position - hitbox.global_position).normalized()
+	var knockback = attackDirection * speed
+	velocity += knockback * hitbox.knockbackIntensity

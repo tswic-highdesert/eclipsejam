@@ -8,23 +8,33 @@ var motion = Vector2.ZERO
 var currentSpeed = normalSpeed
 var inRange = false
 var isCharging = false
+var stunned = false
 
-@onready var stats = $EnemyStats
 
 
 
 func _physics_process(delta):
-	#print ("Current Speed: ", currentSpeed)
+	if !stunned:
+		if !isCharging:
+			chase_player()
+			$AnimationPlayer.speed_scale = 1
+		else:
+			charge_player()
+			$AnimationPlayer.speed_scale = 2
 	
-	if !isCharging:
-		chase_player()
-	else:
-		charge_player()
-		print ("Charging Initiated")
+	anim_handler()
+
+func anim_handler():
+	flip()
+	if currentSpeed > 0:
+		$AnimationPlayer.play("walking")
+	elif currentSpeed == 0:
+		$AnimationPlayer.play("idle")
 
 
 
 func chase_player():
+	currentSpeed = aggroSpeed
 	velocity = (Global.player.global_position-global_position).normalized() * currentSpeed
 	move_and_slide()
 
@@ -47,24 +57,29 @@ func _on_aggro_radius_body_entered(body):
 	#We are not going to do anything with aggroradius for this enemytype
 	pass
 
-
-func _on_hurtbox_hit(damage):
-	stats.health - damage
-
+func stop_charging():
+	currentSpeed = 0
+	$ChargeCooldown.start()
+	stunned = true
 
 func _on_charge_cooldown_timeout():
-	if currentSpeed == chargeSpeed:
-		currentSpeed = 0
-		$ChargeCooldown.start()
-	elif currentSpeed == 0:
-		currentSpeed = normalSpeed
+	currentSpeed = normalSpeed
 	isCharging = false
+	stunned = false
 
 
 func _on_charge_range_body_entered(body):
 	if !isCharging:
-		currentSpeed = 0
+		stunned = true
 		$ChargeUp.start()
 
 func _on_charge_up_timeout():
 	charge_player()
+	stunned = false
+
+func _on_hitbox_area_entered(hurtbox):
+	stop_charging()
+
+
+func _on_hurtbox_area_entered(hitbox):
+	stop_charging()

@@ -6,14 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cd2vrn5yjxw8y" path="res://Art/player arm.png" id="3_rrio7"]
 [ext_resource type="PackedScene" uid="uid://ccqo6da7ewy15" path="res://Enemies/hurtbox.tscn" id="5_qh66n"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ek11d"]
-size = Vector2(64.7206, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xp6k"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gs0k"]
-size = Vector2(113.125, 287)
-
 [sub_resource type="Animation" id="Animation_huyjt"]
 length = 0.001
 tracks/0/type = "value"
@@ -179,6 +171,14 @@ _data = {
 "walk": SubResource("Animation_uany0")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ek11d"]
+size = Vector2(64.7206, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xp6k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gs0k"]
+size = Vector2(113.125, 287)
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -1)
 collision_layer = 2049
@@ -186,6 +186,17 @@ collision_mask = 2049
 motion_mode = 1
 script = ExtResource("1_j451e")
 speed = 25
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xc4ag")
+}
+autoplay = "walk"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
 
 [node name="Shadow" type="Sprite2D" parent="."]
 position = Vector2(0, 7.88)
@@ -242,11 +253,6 @@ disabled = true
 position = Vector2(-5.4375, 9.5)
 shape = SubResource("RectangleShape2D_4gs0k")
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
-
-[node name="GroundMarker" type="Marker2D" parent="."]
-position = Vector2(0, 153)
-
 [node name="RayCast2D" type="RayCast2D" parent="."]
 rotation = -1.5708
 scale = Vector2(4.57, 4.57)
@@ -255,14 +261,8 @@ metadata/isCurrent = false
 [node name="FireLocation" type="Marker2D" parent="RayCast2D"]
 position = Vector2(-8.68798e-05, 24)
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_xc4ag")
-}
-autoplay = "walk"
+[node name="GroundMarker" type="Marker2D" parent="."]
+position = Vector2(0, 153)
 
 [node name="Hurtbox" parent="." instance=ExtResource("5_qh66n")]
 
@@ -270,5 +270,6 @@ autoplay = "walk"
 scale = Vector2(4.875, 7.195)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 
 [editable path="Hurtbox"]

@@ -4,8 +4,6 @@ extends CharacterBody2D
 @export var normalSpeed = 250
 @export var aggroSpeed = 350
 
-@onready var stats = $EnemyStats
-
 var motion = Vector2.ZERO
 var currentSpeed = normalSpeed
 
@@ -29,6 +27,3 @@ func _on_aggro_radius_body_entered(body):
 	#SignalManager.enemy_destroyed.emit(self)
 	#queue_free()
 
-
-func _on_hurtbox_hit(damage):
-	stats.health - damage

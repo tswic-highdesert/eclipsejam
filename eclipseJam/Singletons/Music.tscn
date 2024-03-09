@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cs812svvm5jpx"]
+[gd_scene load_steps=4 format=3 uid="uid://cs812svvm5jpx"]
 
 [ext_resource type="Script" path="res://Singletons/MusicManager.gd" id="1_osolo"]
 [ext_resource type="AudioStream" uid="uid://b1jby225xnbsp" path="res://Music/Main Menu Music.mp3" id="2_q1x7h"]
+[ext_resource type="AudioStream" uid="uid://bqaqh5ylxeq1l" path="res://Music/eclipseGameplayLoop.wav" id="3_of8ah"]
 
 [node name="Music" type="Node"]
 script = ExtResource("1_osolo")
 
 [node name="mainMenu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_q1x7h")
+volume_db = -10.0
+
+[node name="gameplayLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_of8ah")
 volume_db = -10.0

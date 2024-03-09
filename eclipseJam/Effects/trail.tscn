@@ -1,12 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://qd8j81jghy5l"]
+[gd_scene load_steps=4 format=3 uid="uid://qd8j81jghy5l"]
 
 [ext_resource type="Script" path="res://Effects/particles.gd" id="1_mdxpp"]
 
-[sub_resource type="Gradient" id="Gradient_u46ut"]
-colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
-
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ip2n4"]
-gradient = SubResource("Gradient_u46ut")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gigvh"]
 lifetime_randomness = 0.2

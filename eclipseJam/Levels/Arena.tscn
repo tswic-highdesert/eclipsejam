@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bapr21mnf8pot"]
+[gd_scene load_steps=15 format=3 uid="uid://bapr21mnf8pot"]
 
 [ext_resource type="Texture2D" uid="uid://b5tyglfxxl46" path="res://Art/World/background sky.jpg" id="1_1rim3"]
 [ext_resource type="Script" path="res://Levels/ArenaManager.gd" id="1_ockfo"]
@@ -45,8 +45,11 @@ _data = {
 "new_animation": SubResource("Animation_k8wd4")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjq70"]
+size = Vector2(539.292, 17.6729)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8cgs"]
-size = Vector2(316.863, 17.6729)
+size = Vector2(539.292, 17.6729)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ywyvh"]
 size = Vector2(170.5, 349.5)
@@ -104,45 +107,31 @@ position = Vector2(58, 1253)
 zoom = Vector2(0.4, 0.4)
 
 [node name="Bounds" type="StaticBody2D" parent="."]
-position = Vector2(26468, 5629)
+position = Vector2(9595, 6912)
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds"]
-position = Vector2(-6543, -4588.6)
+position = Vector2(-9870, -4234)
 scale = Vector2(23.72, 23.72)
-shape = SubResource("RectangleShape2D_w8cgs")
+shape = SubResource("RectangleShape2D_rjq70")
 debug_color = Color(0.160784, 0, 0.0470588, 0.419608)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Bounds"]
-position = Vector2(-10548, -5578)
-rotation = 2.35262
-scale = Vector2(23.72, 23.72)
-shape = SubResource("RectangleShape2D_w8cgs")
-debug_color = Color(0.160784, 0, 0.0470588, 0.419608)
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Bounds"]
-position = Vector2(-10425, -6149)
-rotation = 1.57288
-scale = Vector2(23.72, 23.72)
-shape = SubResource("RectangleShape2D_w8cgs")
-debug_color = Color(0.160784, 0, 0.0470588, 0.419608)
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Bounds"]
-position = Vector2(-2598, -6173)
-rotation = 1.57288
+position = Vector2(-12962, -6551)
+rotation = 2.36341
 scale = Vector2(23.72, 23.72)
 shape = SubResource("RectangleShape2D_w8cgs")
 debug_color = Color(0.160784, 0, 0.0470588, 0.419608)
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Bounds"]
-position = Vector2(-3833, -6736)
-rotation = 0.916012
+position = Vector2(-5628, -5982)
+rotation = 0.782052
 scale = Vector2(23.72, 23.72)
 shape = SubResource("RectangleShape2D_w8cgs")
 debug_color = Color(0.160784, 0, 0.0470588, 0.419608)
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Bounds"]
-position = Vector2(-6422, -7767)
+position = Vector2(-8496, -7405)
 rotation = 3.14287
 scale = Vector2(23.72, 23.72)
 shape = SubResource("RectangleShape2D_w8cgs")

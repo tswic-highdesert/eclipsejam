@@ -30,6 +30,7 @@ func _physics_process(delta):
 	if self.health <= 0:
 		SignalManager.enemy_destroyed.emit(self)
 		queue_free()
+	move_and_slide()
 
 func anim_handler():
 	flip()
@@ -43,14 +44,12 @@ func anim_handler():
 func chase_player():
 	currentSpeed = aggroSpeed
 	velocity = (Global.player.global_position-global_position).normalized() * currentSpeed
-	move_and_slide()
 
 func charge_player():
 	isCharging = true
 	currentSpeed = chargeSpeed
 	
 	velocity = (Global.player.global_position-global_position).normalized() * currentSpeed
-	move_and_slide()
 
 func flip():
 	var direction = sign(Global.player.global_position.x - self.global_position.x)
@@ -65,7 +64,6 @@ func _on_aggro_radius_body_entered(body):
 	pass
 
 func stop_charging():
-	currentSpeed = 0
 	$ChargeCooldown.start()
 	stunned = true
 
@@ -95,7 +93,3 @@ func _on_hurtbox_area_entered(hitbox):
 	self.health -= base_damage
 	print ("Enemy's Health: ", self.health)
 	
-	#knockback code
-	var attackDirection =  (self.global_position - hitbox.global_position).normalized()
-	var knockback = attackDirection
-	velocity += knockback * hitbox.knockbackIntensity

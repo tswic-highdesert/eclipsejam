@@ -111,6 +111,7 @@ throw_molotov={
 2d_physics/layer_4="World"
 2d_physics/layer_5="Hitboxes"
 2d_physics/layer_6="Hurtboxes"
+2d_physics/layer_7="Projectiles"
 
 [rendering]
 

@@ -24,8 +24,8 @@ const HEALTH_PICKUP = preload("res://Pickups/healthpickup.tscn")
 @onready var pickupArea = $"Pickup Area"
 @onready var waveText = $CanvasLayer/Label
 
-var WaveOne = {"enemies": [MINOTAUR], "maxEnemies": 1}
-var WaveTwo = {"enemies": [MINOTAUR], "maxEnemies": 2}
+var WaveOne = {"enemies": [MINOTAUR], "maxEnemies": 5}
+var WaveTwo = {"enemies": [MINOTAUR], "maxEnemies": 15}
 var WaveThree = {"enemies": [MINOTAUR], "maxEnemies": 3}
 var WaveFour = {"enemies": [MINOTAUR], "maxEnemies": 4}
 var WaveFive = {"enemies": [MINOTAUR], "maxEnemies": 5}

@@ -215,7 +215,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gs0k"]
-size = Vector2(113.125, 287)
+size = Vector2(113.125, 43)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -1)
@@ -273,7 +273,7 @@ rotation = -1.5708
 scale = Vector2(8.23423, 8.23423)
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(-5.4375, 9.5)
+position = Vector2(-5.4375, 131.5)
 shape = SubResource("RectangleShape2D_4gs0k")
 
 [node name="GroundMarker" type="Marker2D" parent="."]
@@ -282,7 +282,8 @@ position = Vector2(0, 153)
 [node name="Hurtbox" parent="." instance=ExtResource("5_qh66n")]
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2(-6, 7.5)
+position = Vector2(-11.5, 3.5)
+rotation = -0.00180864
 scale = Vector2(4.875, 7.195)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

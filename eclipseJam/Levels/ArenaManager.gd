@@ -23,6 +23,7 @@ const HEALTH_PICKUP = preload("res://Pickups/healthpickup.tscn")
 @onready var spawnArea2 = $"Spawn Area 2"
 @onready var pickupArea = $"Pickup Area"
 @onready var waveText = $CanvasLayer/Label
+@onready var pause_menu = $Camera2D/PauseMenu
 
 var WaveOne = {"enemies": [PARENT], "maxEnemies": 1}
 var WaveTwo = {"enemies": [PARENT], "maxEnemies": 2}
@@ -31,7 +32,7 @@ var WaveFour = {"enemies": [PARENT], "maxEnemies": 4}
 var WaveFive = {"enemies": [PARENT], "maxEnemies": 66}
 
 var pickups = [HEALTH_PICKUP]
-
+var paused = false
 
 var currentWave = {}
 var enemyLineUp = []
@@ -80,6 +81,9 @@ func spawn_pickup():
 	Global.instance_scene_on_main(pickupThatSpawns, positionInArea)
 	
 
+func _process(delta):
+	if Input.is_action_just_pressed("Pause"):
+		pauseMenu()
 
 
 
@@ -130,8 +134,14 @@ func startNextWave():
 	else:
 		print ("Waves Completed!")
 
-
-
+func pauseMenu():
+	if paused:
+		pause_menu.hide()
+		get_tree().paused = false
+	else:
+		get_tree().paused = true
+		pause_menu.show()
+	paused = !paused
 
 
 

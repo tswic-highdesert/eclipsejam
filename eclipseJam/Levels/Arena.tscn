@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bapr21mnf8pot"]
+[gd_scene load_steps=18 format=3 uid="uid://bapr21mnf8pot"]
 
 [ext_resource type="Texture2D" uid="uid://b5tyglfxxl46" path="res://Art/World/background sky.jpg" id="1_1rim3"]
 [ext_resource type="Script" path="res://Levels/ArenaManager.gd" id="1_ockfo"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bceu8k1vm3ecl" path="res://Art/World/buildings.png" id="5_uujx8"]
 [ext_resource type="Texture2D" uid="uid://bvvhyb117mqqc" path="res://Art/World/ground.png" id="6_6xymi"]
 [ext_resource type="PackedScene" uid="uid://xlpbakvcle3l" path="res://Camera2D.tscn" id="7_qy5ui"]
+[ext_resource type="PackedScene" uid="uid://dwy86svnp2v7l" path="res://UserInterface/PauseMenu.tscn" id="8_841el"]
 
 [sub_resource type="Animation" id="Animation_tkbc5"]
 length = 0.001
@@ -110,6 +111,15 @@ remote_path = NodePath("../../Camera2D")
 [node name="Camera2D" parent="." instance=ExtResource("7_qy5ui")]
 zoom = Vector2(0.36, 0.36)
 
+[node name="PauseMenu" parent="Camera2D" instance=ExtResource("8_841el")]
+process_mode = 2
+visible = false
+z_index = 5
+offset_left = -981.0
+offset_top = -528.0
+offset_right = -981.0
+offset_bottom = -528.0
+
 [node name="Bounds" type="StaticBody2D" parent="."]
 position = Vector2(16456, 10483)
 scale = Vector2(1.7, 1.7)
@@ -151,7 +161,6 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawn Area 1"]
 position = Vector2(67.9396, 40.9412)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_pemyy")
 
 [node name="Pickup Area" type="Area2D" parent="."]

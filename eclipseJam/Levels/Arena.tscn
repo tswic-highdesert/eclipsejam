@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bapr21mnf8pot"]
+[gd_scene load_steps=19 format=3 uid="uid://bapr21mnf8pot"]
 
 [ext_resource type="Texture2D" uid="uid://b5tyglfxxl46" path="res://Art/World/background sky.jpg" id="1_1rim3"]
 [ext_resource type="Script" path="res://Levels/ArenaManager.gd" id="1_ockfo"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bvvhyb117mqqc" path="res://Art/World/ground.png" id="6_6xymi"]
 [ext_resource type="PackedScene" uid="uid://xlpbakvcle3l" path="res://Camera2D.tscn" id="7_qy5ui"]
 [ext_resource type="PackedScene" uid="uid://dwy86svnp2v7l" path="res://UserInterface/PauseMenu.tscn" id="8_841el"]
+[ext_resource type="Texture2D" uid="uid://c4572vnwjs6xa" path="res://UserInterface/PauseVignette.png" id="9_j2q7i"]
 
 [sub_resource type="Animation" id="Animation_tkbc5"]
 length = 0.001
@@ -110,6 +111,15 @@ remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" parent="." instance=ExtResource("7_qy5ui")]
 zoom = Vector2(0.36, 0.36)
+
+[node name="PauseVignette" type="TextureRect" parent="Camera2D"]
+visible = false
+offset_left = -2662.0
+offset_top = -1504.0
+offset_right = -102.0
+offset_bottom = -64.0
+scale = Vector2(2.08309, 2.14588)
+texture = ExtResource("9_j2q7i")
 
 [node name="PauseMenu" parent="Camera2D" instance=ExtResource("8_841el")]
 process_mode = 2

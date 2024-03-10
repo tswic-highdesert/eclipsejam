@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwy86svnp2v7l"]
+[gd_scene load_steps=3 format=3 uid="uid://dwy86svnp2v7l"]
 
 [ext_resource type="Script" path="res://UserInterface/PauseMenu.gd" id="1_e7moy"]
+[ext_resource type="Texture2D" uid="uid://dtqq0bniliord" path="res://UserInterface/menu_buttons.png" id="2_oujdr"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -21,14 +22,45 @@ scale = Vector2(11.9737, 11.9737)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+alignment = 1
 
-[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Resume"
+[node name="ResumeSprite" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(36.8308, 8.43516)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_oujdr")
+hframes = 2
+vframes = 4
+frame = 4
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Quit"
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer/ResumeSprite"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -489.964
+offset_top = -119.707
+offset_right = -419.964
+offset_bottom = -111.707
+scale = Vector2(14.1284, 29.9372)
+flat = true
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="QuitSprite" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(37.0813, 57.8769)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_oujdr")
+hframes = 2
+vframes = 4
+frame = 2
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/QuitSprite"]
+offset_left = -495.641
+offset_top = -112.967
+offset_right = -425.641
+offset_bottom = -104.967
+scale = Vector2(13.9551, 29.375)
+flat = true
+
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/ResumeSprite/Resume" to="." method="_on_resume_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/ResumeSprite/Resume" to="." method="_on_resume_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ResumeSprite/Resume" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/QuitSprite/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/QuitSprite/Quit" to="." method="_on_quit_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitSprite/Quit" to="." method="_on_quit_pressed"]

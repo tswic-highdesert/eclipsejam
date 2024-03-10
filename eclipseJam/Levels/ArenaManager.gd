@@ -136,11 +136,13 @@ func startNextWave():
 
 func pauseMenu():
 	if paused:
+		$Camera2D/PauseVignette.hide()
 		pause_menu.hide()
 		get_tree().paused = false
 	else:
 		get_tree().paused = true
 		pause_menu.show()
+		$Camera2D/PauseVignette.show()
 	paused = !paused
 
 

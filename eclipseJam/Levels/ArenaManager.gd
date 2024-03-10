@@ -13,7 +13,7 @@ const TEMP = preload("res://Enemies/ParentEnemy.tscn")
 #const GHOST = preload("res://Enemies/ghost.tscn")
 #const HARPEE = preload("res://Enemies/harpee.tscn")
 #const MEDUSA = preload("res://Enemies/medusa.tscn")
-const MINOTAUR = preload("res://Enemies/minotaur.tscn")
+#const MINOTAUR = preload("res://Enemies/minotaur.tscn")
 
 const INVICIBILITY_PICKUP = preload("res://Pickups/invincibility.tscn")
 const HEALTH_PICKUP = preload("res://Pickups/healthpickup.tscn")
@@ -24,11 +24,11 @@ const HEALTH_PICKUP = preload("res://Pickups/healthpickup.tscn")
 @onready var pickupArea = $"Pickup Area"
 @onready var waveText = $CanvasLayer/Label
 
-var WaveOne = {"enemies": [MINOTAUR], "maxEnemies": 5}
-var WaveTwo = {"enemies": [MINOTAUR], "maxEnemies": 15}
-var WaveThree = {"enemies": [MINOTAUR], "maxEnemies": 3}
-var WaveFour = {"enemies": [MINOTAUR], "maxEnemies": 4}
-var WaveFive = {"enemies": [MINOTAUR], "maxEnemies": 5}
+var WaveOne = {"enemies": [TEMP], "maxEnemies": 5}
+var WaveTwo = {"enemies": [TEMP], "maxEnemies": 15}
+var WaveThree = {"enemies": [TEMP], "maxEnemies": 3}
+var WaveFour = {"enemies": [TEMP], "maxEnemies": 4}
+var WaveFive = {"enemies": [TEMP], "maxEnemies": 5}
 
 var pickups = [HEALTH_PICKUP]
 

@@ -1,6 +1,5 @@
 extends Node
 
-var PlayerStats = preload("res://Player/PlayerStats.tres")
 
 var player = null
 

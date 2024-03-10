@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://c51rd3m88a1r3"]
-
-[ext_resource type="PackedScene" uid="uid://bb76lh2hgpb3r" path="res://Enemies/ParentEnemy.tscn" id="1_en3q3"]
-[ext_resource type="Script" path="res://Enemies/aoe_enemy.gd" id="2_bppwl"]
-
-[node name="AOEEnemy" instance=ExtResource("1_en3q3")]
-script = ExtResource("2_bppwl")
-
-[editable path="Hurtbox"]

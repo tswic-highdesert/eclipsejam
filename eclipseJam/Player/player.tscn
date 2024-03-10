@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://yi5w2jbg0rcc"]
+[gd_scene load_steps=10 format=3 uid="uid://oncfefg75job"]
 
 [ext_resource type="Script" path="res://Player/player_controller.gd" id="1_j451e"]
 [ext_resource type="Texture2D" uid="uid://dyde0fr07wtor" path="res://Art/shadow.png" id="2_jwutx"]
 [ext_resource type="Texture2D" uid="uid://3axmpw8hcxxl" path="res://Art/Old Man.png" id="3_evfdi"]
 [ext_resource type="Texture2D" uid="uid://cd2vrn5yjxw8y" path="res://Art/player arm.png" id="3_rrio7"]
-[ext_resource type="PackedScene" uid="uid://ccqo6da7ewy15" path="res://Enemies/hurtbox.tscn" id="5_qh66n"]
 
 [sub_resource type="Animation" id="Animation_huyjt"]
 length = 0.001
@@ -55,18 +54,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0.64, 0.64)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Player/arm:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.867188, 0.867188)]
 }
 
 [sub_resource type="Animation" id="Animation_hohd4"]
@@ -175,72 +162,29 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(0.644, 0.644), Vector2(0.648, 0.644), Vector2(0.644, 0.644)]
 }
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.4),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"spawn_ground_effects"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_torp0"]
-resource_name = "fire"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player/arm:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0.867188, 0.867188), Vector2(0.823, 0.867), Vector2(1.112, 0.867), Vector2(0.867188, 0.867188)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xc4ag"]
 _data = {
 "RESET": SubResource("Animation_huyjt"),
-"fire": SubResource("Animation_torp0"),
 "idle": SubResource("Animation_hohd4"),
 "walk": SubResource("Animation_uany0")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gs0k"]
-size = Vector2(113.125, 43)
+size = Vector2(113.125, 287)
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(0, -1)
 collision_layer = 2049
 collision_mask = 2049
 motion_mode = 1
 script = ExtResource("1_j451e")
-speed = 25
+speed = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_xc4ag")
 }
 autoplay = "walk"
-
-[node name="armAnimationplayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_xc4ag")
-}
-autoplay = "walk"
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
 
 [node name="Shadow" type="Sprite2D" parent="."]
 position = Vector2(0, 7.88)
@@ -263,30 +207,20 @@ hframes = 5
 frame = 3
 
 [node name="FireLocation" type="Marker2D" parent="Player/arm"]
-position = Vector2(663.063, 16.2162)
-rotation = -1.5708
-scale = Vector2(8.23423, 8.23423)
-
-[node name="arm" type="Marker2D" parent="Player/arm"]
-position = Vector2(194.594, 23.4234)
+position = Vector2(257.658, 21.6216)
 rotation = -1.5708
 scale = Vector2(8.23423, 8.23423)
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(-5.4375, 131.5)
+position = Vector2(-5.4375, 9.5)
 shape = SubResource("RectangleShape2D_4gs0k")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
 
 [node name="GroundMarker" type="Marker2D" parent="."]
 position = Vector2(0, 153)
 
-[node name="Hurtbox" parent="." instance=ExtResource("5_qh66n")]
-
-[node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2(-11.5, 3.5)
-rotation = -0.00180864
-scale = Vector2(4.875, 7.195)
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
-
-[editable path="Hurtbox"]

@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://l5w2hprwcy5s"]
+[gd_scene load_steps=11 format=3 uid="uid://l5w2hprwcy5s"]
 
 [ext_resource type="Script" path="res://Projectiles/ParentBullet.gd" id="1_aunx3"]
 [ext_resource type="Texture2D" uid="uid://dk07247mb2cdu" path="res://Art/Bullet.png" id="2_b7lik"]
 [ext_resource type="PackedScene" uid="uid://cmqrdh5fbso0u" path="res://Enemies/hitbox.tscn" id="2_i46oh"]
 [ext_resource type="PackedScene" uid="uid://qd8j81jghy5l" path="res://Effects/trail.tscn" id="3_rr4sb"]
 [ext_resource type="Script" path="res://Effects/trail.gd" id="4_ob67l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkb1r"]
+size = Vector2(58, 55.752)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivvwr"]
 size = Vector2(44, 32)
@@ -36,10 +39,10 @@ script = ExtResource("1_aunx3")
 collision_layer = 64
 collision_mask = 32
 damage = 50
-knockbackIntensity = 5
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2(11, -3)
+position = Vector2(9, -2.124)
+shape = SubResource("RectangleShape2D_qkb1r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(11, -2)
@@ -56,10 +59,10 @@ process_material = SubResource("ParticleProcessMaterial_tlodu")
 lifetime = 3.0
 script = ExtResource("4_ob67l")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="decayTimer" type="Timer" parent="."]
 wait_time = 15.0
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="decayTimer" to="." method="_on_timer_timeout"]
 
 [editable path="Hitbox"]

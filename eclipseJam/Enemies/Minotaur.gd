@@ -87,7 +87,10 @@ func _on_hitbox_area_entered(hurtbox):
 
 
 func _on_hurtbox_area_entered(hitbox):
-	stop_charging()
+	if isCharging:
+		stop_charging()
+	else:
+		stunned = true
 	
 	var base_damage = hitbox.damage
 	self.health -= base_damage

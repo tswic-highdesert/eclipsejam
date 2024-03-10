@@ -32,7 +32,7 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			fire_bullet()
-			$armAnimationplayer.play("fire")
+			#$armAnimationplayer.play("fire")
 
 func calc_movement(delta):
 	var direction = Vector2(
@@ -71,7 +71,7 @@ func fire_bullet():
 		bullet.rotation = $Player/arm.global_rotation
 		$Timer.start()
 		
-		Global.instance_scene_on_main(BURST, $Player/arm/arm.global_position)
+		Global.instance_scene_on_main(BURST, $Player/arm/FireLocation.global_position)
 		
 	canFire = false
 

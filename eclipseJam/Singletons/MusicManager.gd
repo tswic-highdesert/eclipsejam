@@ -4,7 +4,7 @@ var current_song = ""
 
 func play_song(song_name):
 	if song_name != current_song:
-		var cur_song_node = get_node_or_null(current_song)
+		#var cur_song_node = get_node_or_null(current_song)
 		var new_song_node = get_node(song_name)
 		fadein(new_song_node)  # Start the new song
 		new_song_node.play()

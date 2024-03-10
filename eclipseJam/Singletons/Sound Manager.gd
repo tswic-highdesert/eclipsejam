@@ -4,7 +4,7 @@ var sounds_path = "res://Music/"
 
 var sounds = {
 	"grass_step" : load(sounds_path + "grass_step.ogg"),
-	"hit" : load(sounds_path + "meleeFx.wav")
+	"hit" : load(sounds_path + "meleeFx.mp3")
 }
 
 @onready var sound_players = get_children()

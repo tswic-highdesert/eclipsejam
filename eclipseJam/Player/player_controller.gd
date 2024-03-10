@@ -42,7 +42,7 @@ func calc_movement(delta):
 	direction = direction.normalized()
 	
 	velocity = velocity.lerp(direction * speed, 0.1)
-	velocity *= 1.0 - (friction * delta)
+	#velocity *= 1.0 - (friction * delta)
 
 func calc_anims():
 	if velocity.length() > 0.05:

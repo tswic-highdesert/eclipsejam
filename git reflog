@@ -1,0 +1,262 @@
+[33mcommit 3c2ad4cbc225ba7a18db1efb76b84199346a845c[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: tswic-highdesert <97049574+tswic-highdesert@users.noreply.github.com>
+Date:   Sat Mar 9 21:11:27 2024 -0600
+
+    Fixing Broken Game
+
+[33mcommit 53397f3e9f902ee6a76200254bf33bd37322580f[m
+Author: tswic-highdesert <97049574+tswic-highdesert@users.noreply.github.com>
+Date:   Sat Mar 9 15:02:09 2024 -0600
+
+    attacks
+
+[33mcommit 0c5b1f7c1e435e20c2164aabed07409a57d69a94[m
+Author: tswic-highdesert <97049574+tswic-highdesert@users.noreply.github.com>
+Date:   Sat Mar 9 14:47:35 2024 -0600
+
+    Added Signals
+
+[33mcommit 7f4ac27c6f3b8aaabfadceee25d74ab0095f10a9[m
+Author: tswic-highdesert <97049574+tswic-highdesert@users.noreply.github.com>
+Date:   Sat Mar 9 14:41:58 2024 -0600
+
+    Staff
+
+[33mcommit 13f53c893335cd3cab3e570edf17415090780403[m
+Author: tswic-highdesert <97049574+tswic-highdesert@users.noreply.github.com>
+Date:   Sat Mar 9 14:36:47 2024 -0600
+
+    Ghost Sprite Sheet
+
+[33mcommit 8ec9a727ad9cfc3a99ecdd47a80e25c9d96e8b0f[m
+Author: tswic-highdesert <97049574+tswic-highdesert@users.noreply.github.com>
+Date:   Sat Mar 9 14:31:54 2024 -0600
+
+    Update
+
+[33mcommit 9b044d1ba5bf3884faea0745389386ac9a5a0116[m
+Author: tswic-highdesert <97049574+tswic-highdesert@users.noreply.github.com>
+Date:   Sat Mar 9 13:37:03 2024 -0600
+
+    Music and Minotaur Art
+
+[33mcommit 20166b05bef8dd1268ffb833c945e77771e27257[m
+Author: tswic-highdesert <97049574+tswic-highdesert@users.noreply.github.com>
+Date:   Sat Mar 9 12:41:23 2024 -0600
+
+    Hopefully not breaking things
+
+[33mcommit 49cd469fe8bc9f32beea93d625b7f72047de967c[m
+Author: tswic-highdesert <97049574+tswic-highdesert@users.noreply.github.com>
+Date:   Fri Mar 8 21:01:45 2024 -0600
+
+    Minotaur tweaks
+
+[33mcommit e1cb8d1f4846f85c635474fd73f88cc86ec2452f[m
+Author: FrostyShock <ChrisMBerry@outlook.com>
+Date:   Fri Mar 8 20:49:00 2024 -0600
+
+    working
+
+[33mcommit 99d9fac4aeb7fadf02f019560fd0586cebdc61b4[m
+Author: FrostyShock <ChrisMBerry@outlook.com>
+Date:   Fri Mar 8 20:23:43 2024 -0600
+
+    Up to Date
+
+[33mcommit 384de03f57bf98c859dd7b932340228fa1b30a03[m
+Author: FrostyShock <ChrisMBerry@outlook.com>
+Date:   Fri Mar 8 18:33:15 2024 -0600
+
+    Minotaur testing
+
+[33mcommit 94a4c2b4d3c52374e2ea50c76b16d7641fc17df1[m
+Author: FrostyShock <ChrisMBerry@outlook.com>
+Date:   Tue Mar 5 20:00:35 2024 -0600
+
+    Update Arena.tscn
+
+[33mcommit 1d1dfd8ee4f2bcd13ce6043b64a6243c6111e967[m
+Author: FrostyShock <ChrisMBerry@outlook.com>
+Date:   Tue Mar 5 19:58:44 2024 -0600
+
+    Powerups fix
+
+[33mcommit bb00d584a32e7937c0e053744d529817d253c68a[m
+Author: FrostyShock <ChrisMBerry@outlook.com>
+Date:   Tue Mar 5 17:00:35 2024 -0600
+
+    Weapon Switching and Animations
+
+[33mcommit 5488ccf37bfc0a756093b1330200bf17e513aef6[m
+Author: FrostyShock <ChrisMBerry@outlook.com>
+Date:   Tue Mar 5 14:58:53 2024 -0600
+
+    Fixed Corrupt Invincibility
+
+[33mcommit 4f0d0608a464431ac547a11592a1f30bfdf5cdf0[m
+Author: tswic-highdesert <97049574+tswic-highdesert@users.noreply.github.com>
+Date:   Sun Mar 3 20:16:54 2024 -0600
+
+    fix
+
+[33mcommit 0eb5c842ef7ee9f664d24033904526124212568c[m
+Author: tswic-highdesert <97049574+tswic-highdesert@users.noreply.github.com>
+Date:   Sun Mar 3 20:15:04 2024 -0600
+
+    Level Design and Enemy Refactoring
+
+[33mcommit c64101c45ffa182b3f91ca92a7761c545ad0cdb4[m
+Author: tswic-highdesert <97049574+tswic-highdesert@users.noreply.github.com>
+Date:   Sun Mar 3 18:57:32 2024 -0600
+
+    update
+
+[33mcommit f0163084e31fd8887354b1c1bf296ae29d2438aa[m
+Merge: 8c7a9dc fd1a151
+Author: FrostyShock <ChrisMBerry@outlook.com>
+Date:   Sun Mar 3 18:56:22 2024 -0600
+
+    Merge branch 'main' of https://github.com/tswic-highdesert/eclipsejam
+
+[33mcommit 8c7a9dc211fad61c2610a2812ea8bacc417a9192[m
+Author: FrostyShock <ChrisMBerry@outlook.com>
+Date:   Sun Mar 3 18:56:12 2024 -0600
+
+    WeaponSwitchFix
+
+[33mcommit fd1a151fdb4a2d5c9bae37a3d012bae851ba9ec2[m
+Author: tswic-highdesert <97049574+tswic-highdesert@users.noreply.github.com>
+Date:   Sun Mar 3 18:33:42 2024 -0600
+
+    update
+
+[33mcommit f72e35d43708c75a156542051c003e16f062df61[m
+Author: FrostyShock <ChrisMBerry@outlook.com>
+Date:   Sun Mar 3 18:33:10 2024 -0600
+
+    WorkingUpdate
+
+[33mcommit 1d74393576c649f5ecb58051e92e0c6359789236[m
+Merge: 40acf91 3d834e3
+Author: tswic-highdesert <97049574+tswic-highdesert@users.noreply.github.com>
+Date:   Sun Mar 3 18:12:24 2024 -0600
+
+    Merge branch 'main' of https://github.com/tswic-highdesert/eclipsejam
+
+[33mcommit 40acf91acb52e7bf5348b11586aa2254b1a7ae1a[m
+Author: tswic-highdesert <97049574+tswic-highdesert@users.noreply.github.com>
+Date:   Sun Mar 3 18:12:19 2024 -0600
+
+    test
+
+[33mcommit 3d834e3cb276756f9d760804c571314876baefd9[m
+Merge: d129e2d 77dd4c8
+Author: FrostyShock <ChrisMBerry@outlook.com>
+Date:   Sun Mar 3 18:11:57 2024 -0600
+
+    Merge branch 'main' of https://github.com/tswic-highdesert/eclipsejam
+
+[33mcommit d129e2da29764c6076c833f74b9ba64938066f05[m
+Author: FrostyShock <ChrisMBerry@outlook.com>
+Date:   Sun Mar 3 18:11:53 2024 -0600
+
+    Pickups
+
+[33mcommit 77dd4c8ac13dbcee640c42168a97cf45fcb87677[m
+Author: tswic-highdesert <97049574+tswic-highdesert@users.noreply.github.com>
+Date:   Sun Mar 3 18:06:36 2024 -0600
+
+    LevelBlockout
+
+[33mcommit 6f8b20a92b70ff5cd5eba5252dd8ec6e77d58670[m
+Merge: 02d3c68 a421ab5
+Author: tswic-highdesert <97049574+tswic-highdesert@users.noreply.github.com>
+Date:   Sun Mar 3 17:49:22 2024 -0600
+
+    Merge branch 'main' of https://github.com/tswic-highdesert/eclipsejam
+
+[33mcommit 02d3c681b7e70ac768d5fee5bdec06f4016a87b0[m
+Author: tswic-highdesert <97049574+tswic-highdesert@users.noreply.github.com>
+Date:   Sun Mar 3 17:49:12 2024 -0600
+
+    Player Arms
+
+[33mcommit a421ab5397955384d2201e00456900f24ba0853a[m
+Merge: 7688e2e b89ff79
+Author: FrostyShock <ChrisMBerry@outlook.com>
+Date:   Sun Mar 3 17:39:28 2024 -0600
+
+    Merge branch 'main' of https://github.com/tswic-highdesert/eclipsejam
+
+[33mcommit 7688e2e268db23b2375475f63f896cd3e1e12f25[m
+Author: FrostyShock <ChrisMBerry@outlook.com>
+Date:   Sun Mar 3 17:38:29 2024 -0600
+
+    Molotovchanges
+
+[33mcommit b89ff793f6c68bfa30a902ea3fc8d470f6003f00[m
+Author: tswic-highdesert <97049574+tswic-highdesert@users.noreply.github.com>
+Date:   Sun Mar 3 17:36:30 2024 -0600
+
+    Player Arms and Sprites
+
+[33mcommit 99e15f64e76565755051f65f932a01a6dd158337[m
+Author: tswic-highdesert <97049574+tswic-highdesert@users.noreply.github.com>
+Date:   Sun Mar 3 17:07:48 2024 -0600
+
+    Stats
+
+[33mcommit 74e04c1251ed621d248385f523b4ffce8e494595[m
+Author: tswic-highdesert <97049574+tswic-highdesert@users.noreply.github.com>
+Date:   Sun Mar 3 17:07:08 2024 -0600
+
+    Revert "Stats"
+    
+    This reverts commit 3d28f7b1601fec3f2ff9d52d474a0a82645aeb69.
+
+[33mcommit 3d28f7b1601fec3f2ff9d52d474a0a82645aeb69[m
+Author: tswic-highdesert <97049574+tswic-highdesert@users.noreply.github.com>
+Date:   Sun Mar 3 16:57:36 2024 -0600
+
+    Stats
+
+[33mcommit 098563307b2cdb14be9b86ce1c942aa48447aa5a[m
+Author: FrostyShock <ChrisMBerry@outlook.com>
+Date:   Sun Mar 3 15:32:53 2024 -0600
+
+    Molotov Work
+
+[33mcommit 3223996bd47c120d6e3cc40346ed6b20549ed480[m
+Author: FrostyShock <ChrisMBerry@outlook.com>
+Date:   Sun Mar 3 13:48:21 2024 -0600
+
+    PLayerSwapFinish
+
+[33mcommit c225b79bf3b0b9e6d3d14ef5804918d5b4e425d7[m
+Merge: 8274f0a 38dce17
+Author: FrostyShock <ChrisMBerry@outlook.com>
+Date:   Sat Mar 2 22:02:48 2024 -0600
+
+    Merge branch 'main' of https://github.com/tswic-highdesert/eclipsejam
+
+[33mcommit 8274f0a00da75493fd6221e5adf5c2a24edbdb85[m
+Author: FrostyShock <ChrisMBerry@outlook.com>
+Date:   Sat Mar 2 22:02:30 2024 -0600
+
+    Working Weapon Switching
+
+[33mcommit 38dce170127bb9e2c91189fb25816814731b3abc[m
+Author: tswic-highdesert <97049574+tswic-highdesert@users.noreply.github.com>
+Date:   Sat Mar 2 21:51:40 2024 -0600
+
+    Cutscene Foundations
+
+[33mcommit ed354d905f66c783e7dab8c0c65192bdf0be7c92[m
+Merge: 2399e52 65e7633
+Author: FrostyShock <ChrisMBerry@outlook.com>
+Date:   Sat Mar 2 21:15:11 2024 -0600
+
+    Merge branch 'main' of https://github.com/tswic-highdesert/eclipsejam
+
+[33mcommit 2399e5

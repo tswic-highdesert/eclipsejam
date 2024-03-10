@@ -1,9 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://oncfefg75job"]
+[gd_scene load_steps=10 format=3 uid="uid://yi5w2jbg0rcc"]
 
 [ext_resource type="Script" path="res://Player/player_controller.gd" id="1_j451e"]
 [ext_resource type="Texture2D" uid="uid://dyde0fr07wtor" path="res://Art/shadow.png" id="2_jwutx"]
 [ext_resource type="Texture2D" uid="uid://3axmpw8hcxxl" path="res://Art/Old Man.png" id="3_evfdi"]
 [ext_resource type="Texture2D" uid="uid://cd2vrn5yjxw8y" path="res://Art/player arm.png" id="3_rrio7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gs0k"]
+size = Vector2(113.125, 287)
 
 [sub_resource type="Animation" id="Animation_huyjt"]
 length = 0.001
@@ -170,21 +173,12 @@ _data = {
 "walk": SubResource("Animation_uany0")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gs0k"]
-size = Vector2(113.125, 287)
-
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2049
 collision_mask = 2049
 motion_mode = 1
 script = ExtResource("1_j451e")
 speed = 5
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_xc4ag")
-}
-autoplay = "walk"
 
 [node name="Shadow" type="Sprite2D" parent="."]
 position = Vector2(0, 7.88)
@@ -207,7 +201,7 @@ hframes = 5
 frame = 3
 
 [node name="FireLocation" type="Marker2D" parent="Player/arm"]
-position = Vector2(257.658, 21.6216)
+position = Vector2(203.027, 16.2162)
 rotation = -1.5708
 scale = Vector2(8.23423, 8.23423)
 
@@ -222,5 +216,11 @@ position = Vector2(0, 153)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xc4ag")
+}
+autoplay = "walk"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

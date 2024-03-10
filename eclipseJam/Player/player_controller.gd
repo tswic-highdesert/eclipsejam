@@ -79,7 +79,6 @@ func fire_bullet():
 		$Timer.start()
 		
 		Global.instance_scene_on_main(BURST, $Player/arm/FireLocation.global_position)
-		
 		recoil()
 		
 	canFire = false

@@ -14,6 +14,7 @@ var currentSpeed = normalSpeed
 
 @onready var animPlayer = $AnimationPlayer
 
+
 func _physics_process(_delta):
 	chase_player()
 	anim_handler()

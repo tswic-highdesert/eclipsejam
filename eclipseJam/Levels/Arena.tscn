@@ -108,7 +108,7 @@ speed = 15
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" parent="." instance=ExtResource("7_qy5ui")]
-zoom = Vector2(0.095, 0.095)
+zoom = Vector2(0.36, 0.36)
 
 [node name="Bounds" type="StaticBody2D" parent="."]
 position = Vector2(16456, 10483)
@@ -176,7 +176,7 @@ position = Vector2(-4, -2)
 shape = SubResource("RectangleShape2D_ywyvh")
 
 [node name="waveCooldown" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 8.5
 one_shot = true
 
 [node name="enemySpawnTimer" type="Timer" parent="."]

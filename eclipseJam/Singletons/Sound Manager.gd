@@ -4,6 +4,7 @@ var sounds_path = "res://Music/"
 
 var sounds = {
 	"grass_step" : load(sounds_path + "grass_step.ogg"),
+	"church_bell" : load(sounds_path + "churchBellFx.mp3"),
 	"hit" : load(sounds_path + "meleeFx.mp3")
 }
 
@@ -18,3 +19,7 @@ func play(sound_string, pitch_scale = randf_range(0.75, 1.25), volume_db = 0):
 			soundPlayer.play()
 			return
 	print("Too many sounds playing at once")
+
+func stop():
+	for soundPlayer in sound_players:
+		soundPlayer.stop()

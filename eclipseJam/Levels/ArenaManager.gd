@@ -100,9 +100,11 @@ func _on_enemy_spawn_timer_timeout():
 func checkWaveStatus():
 	if enemiesAlive.size() == 0:
 		$waveCooldown.start()
+		SoundFX.play("church_bell")
 
 func _on_wave_cooldown_timeout():
 	startNextWave()
+	SoundFX.stop()
 	
 func startNextWave():
 	if currentWave == WaveOne:

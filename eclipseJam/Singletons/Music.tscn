@@ -14,19 +14,25 @@ script = ExtResource("1_osolo")
 [node name="mainMenu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_q1x7h")
 volume_db = -10.0
+bus = &"Music"
 
 [node name="gameplayLoop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_of8ah")
 volume_db = -10.0
+bus = &"Music"
 
 [node name="gameplayLoop2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_pjxoo")
+bus = &"Music"
 
 [node name="gameplayLoop3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_53oxc")
+bus = &"Music"
 
 [node name="gameplayLoop4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_eh77x")
+bus = &"Music"
 
 [node name="gameplayLoop5" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_staqv")
+bus = &"Music"

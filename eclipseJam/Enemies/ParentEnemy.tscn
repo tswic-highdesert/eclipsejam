@@ -1,8 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bb76lh2hgpb3r"]
+[gd_scene load_steps=12 format=3 uid="uid://bb76lh2hgpb3r"]
 
 [ext_resource type="Script" path="res://Enemies/ParentEnemy.gd" id="1_bnhyf"]
 [ext_resource type="Texture2D" uid="uid://cr1wdo23n7qcc" path="res://icon.svg" id="2_2cd25"]
+[ext_resource type="PackedScene" uid="uid://cmqrdh5fbso0u" path="res://Enemies/hitbox.tscn" id="2_at6tw"]
 [ext_resource type="PackedScene" uid="uid://ccqo6da7ewy15" path="res://Enemies/hurtbox.tscn" id="3_i7p0e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_813ap"]
+size = Vector2(132, 133)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0f8g"]
 size = Vector2(114, 119)
@@ -78,11 +82,16 @@ _data = {
 }
 
 [node name="ParentEnemy" type="CharacterBody2D"]
+scale = Vector2(3.35, 3.35)
 collision_layer = 2
-collision_mask = 0
+collision_mask = 10
 script = ExtResource("1_bnhyf")
-max_health = null
-normalSpeed = null
+
+[node name="Hitbox" parent="." instance=ExtResource("2_at6tw")]
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(-2, -0.5)
+shape = SubResource("RectangleShape2D_813ap")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_2cd25")
@@ -92,7 +101,7 @@ position = Vector2(-2, -0.5)
 shape = SubResource("RectangleShape2D_l0f8g")
 
 [node name="Hurtbox" parent="." instance=ExtResource("3_i7p0e")]
-collision_mask = 80
+collision_mask = 64
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2(-1.5, -3.5)
@@ -105,4 +114,5 @@ libraries = {
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 
+[editable path="Hitbox"]
 [editable path="Hurtbox"]

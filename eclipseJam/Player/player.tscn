@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://yi5w2jbg0rcc"]
+[gd_scene load_steps=12 format=3 uid="uid://yi5w2jbg0rcc"]
 
 [ext_resource type="Script" path="res://Player/player_controller.gd" id="1_j451e"]
 [ext_resource type="Texture2D" uid="uid://dyde0fr07wtor" path="res://Art/shadow.png" id="2_jwutx"]
 [ext_resource type="Texture2D" uid="uid://3axmpw8hcxxl" path="res://Art/Old Man.png" id="3_evfdi"]
 [ext_resource type="Texture2D" uid="uid://cd2vrn5yjxw8y" path="res://Art/player arm.png" id="3_rrio7"]
+[ext_resource type="PackedScene" uid="uid://ccqo6da7ewy15" path="res://Enemies/hurtbox.tscn" id="5_2crqd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gs0k"]
-size = Vector2(113.125, 287)
+size = Vector2(115, 66)
 
 [sub_resource type="Animation" id="Animation_huyjt"]
 length = 0.001
@@ -173,6 +174,9 @@ _data = {
 "walk": SubResource("Animation_uany0")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p16jm"]
+size = Vector2(134, 210)
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2049
 collision_mask = 2049
@@ -201,12 +205,12 @@ hframes = 5
 frame = 3
 
 [node name="FireLocation" type="Marker2D" parent="Player/arm"]
-position = Vector2(203.027, 16.2162)
+position = Vector2(376.576, 16.2162)
 rotation = -1.5708
 scale = Vector2(8.23423, 8.23423)
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(-5.4375, 9.5)
+position = Vector2(-7, 116)
 shape = SubResource("RectangleShape2D_4gs0k")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
@@ -215,7 +219,7 @@ shape = SubResource("RectangleShape2D_4gs0k")
 position = Vector2(0, 153)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.15
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -223,4 +227,12 @@ libraries = {
 }
 autoplay = "walk"
 
+[node name="Hurtbox" parent="." instance=ExtResource("5_2crqd")]
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(-5, 6)
+shape = SubResource("RectangleShape2D_p16jm")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="Hurtbox"]

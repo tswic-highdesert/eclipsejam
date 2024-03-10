@@ -1,5 +1,8 @@
 extends Node
 
+const DUST = preload("res://Effects/dust.tscn")
+const BURST = preload("res://Effects/burst.tscn")
+const HIT = preload("res://Effects/enemyHit.tscn")
 
 var player = null
 

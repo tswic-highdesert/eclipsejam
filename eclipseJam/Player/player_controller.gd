@@ -3,7 +3,6 @@ extends CharacterBody2D
 const DUST = preload("res://Effects/dust.tscn")
 const BURST = preload("res://Effects/burst.tscn")
 const projectile = preload("res://Projectiles/ParentBullet.tscn")
-const molotov = preload("res://Projectiles/MolotovProjectile.tscn")
 
 var canFire = true
 var currentWeapon = 1
@@ -17,6 +16,9 @@ var currentWeapon = 1
 @export var friction = 0.02
 @onready var anim_player = $AnimationPlayer
 @onready var sprite = $Player
+
+
+var knockback = Vector2.ZERO
 
 func _ready():
 	Global.player = self
@@ -41,7 +43,12 @@ func calc_movement(delta):
 	)
 	direction = direction.normalized()
 	
-	velocity = velocity.lerp(direction * speed, 0.1)
+	#Resets Knockback on Impact
+	knockback = lerp(knockback, Vector2.ZERO, 0.1)
+	
+	velocity = direction * speed + knockback
+	
+	#velocity = velocity.lerp((direction * speed) + knockback, 0.1)
 	#velocity *= 1.0 - (friction * delta)
 
 func calc_anims():
@@ -67,23 +74,28 @@ func look_rotation():
 func fire_bullet():
 	if (canFire == true):
 		var bullet = Global.instance_scene_on_main(projectile, $Player/arm/FireLocation.global_position)
-		bullet.direction = (get_local_mouse_position())
+		bullet.direction = get_local_mouse_position()
 		bullet.rotation = $Player/arm.global_rotation
 		$Timer.start()
 		
 		Global.instance_scene_on_main(BURST, $Player/arm/FireLocation.global_position)
 		
+		recoil()
+		
 	canFire = false
 
+func recoil():
+	var direction = get_local_mouse_position()
+	var impulse = direction * -0.01
+	knockback = impulse
+	
 func _on_timer_timeout():
 	canFire = true
 
 func _on_hurtbox_area_entered(hitbox):
 	var base_damage = hitbox.damage
 	self.health -= base_damage
-	print ("Player's Health: ", self.health)
 	
-	#knockback code
-	var attackDirection =  (self.global_position - hitbox.global_position).normalized()
-	var knockback = attackDirection * speed
-	velocity += knockback * hitbox.knockbackIntensity
+	var direction = hitbox.global_position.direction_to(global_position)
+	var impulse = direction * hitbox.knockbackForce
+	knockback = impulse

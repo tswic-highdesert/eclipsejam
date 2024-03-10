@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://xlpbakvcle3l"]
+
+[ext_resource type="Script" path="res://Camera2D.gd" id="1_cdbt5"]
+
+[node name="Camera2D" type="Camera2D"]
+position = Vector2(58, 1253)
+zoom = Vector2(0.4, 0.4)
+script = ExtResource("1_cdbt5")
+
+[node name="Timer" type="Timer" parent="."]

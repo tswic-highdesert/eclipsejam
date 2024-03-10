@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bapr21mnf8pot"]
+[gd_scene load_steps=16 format=3 uid="uid://bapr21mnf8pot"]
 
 [ext_resource type="Texture2D" uid="uid://b5tyglfxxl46" path="res://Art/World/background sky.jpg" id="1_1rim3"]
 [ext_resource type="Script" path="res://Levels/ArenaManager.gd" id="1_ockfo"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://clif4rkfv0auq" path="res://Art/World/Eclipse Sun.png" id="3_57870"]
 [ext_resource type="Texture2D" uid="uid://bceu8k1vm3ecl" path="res://Art/World/buildings.png" id="5_uujx8"]
 [ext_resource type="Texture2D" uid="uid://bvvhyb117mqqc" path="res://Art/World/ground.png" id="6_6xymi"]
+[ext_resource type="PackedScene" uid="uid://xlpbakvcle3l" path="res://Camera2D.tscn" id="7_qy5ui"]
 
 [sub_resource type="Animation" id="Animation_tkbc5"]
 length = 0.001
@@ -85,13 +86,14 @@ offset = Vector2(-30, 30)
 
 [node name="Buildings" type="Sprite2D" parent="World Art"]
 z_index = -1
-position = Vector2(0, -854)
+position = Vector2(0, -2660)
+scale = Vector2(1.62, 1.62)
 texture = ExtResource("5_uujx8")
 
 [node name="Ground" type="Sprite2D" parent="World Art"]
 z_index = -1
-position = Vector2(0, 2103)
-scale = Vector2(3.97686, 3.97686)
+position = Vector2(17, 2095)
+scale = Vector2(6.352, 6.352)
 texture = ExtResource("6_6xymi")
 
 [node name="Player" parent="." instance=ExtResource("2_eu65l")]
@@ -102,29 +104,29 @@ speed = 15
 [node name="RemoteTransform2D" parent="Player" index="3"]
 remote_path = NodePath("../../Camera2D")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(58, 1253)
-zoom = Vector2(0.4, 0.4)
+[node name="Camera2D" parent="." instance=ExtResource("7_qy5ui")]
+zoom = Vector2(0.095, 0.095)
 
 [node name="Bounds" type="StaticBody2D" parent="."]
-position = Vector2(9595, 6912)
+position = Vector2(16456, 10483)
+scale = Vector2(1.7, 1.7)
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds"]
-position = Vector2(-9870, -4234)
+position = Vector2(-9684.12, -4087.65)
 scale = Vector2(23.72, 23.72)
 shape = SubResource("RectangleShape2D_rjq70")
 debug_color = Color(0.160784, 0, 0.0470588, 0.419608)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Bounds"]
-position = Vector2(-12962, -6551)
+position = Vector2(-12961.8, -6444.71)
 rotation = 2.36341
 scale = Vector2(23.72, 23.72)
 shape = SubResource("RectangleShape2D_w8cgs")
 debug_color = Color(0.160784, 0, 0.0470588, 0.419608)
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Bounds"]
-position = Vector2(-5628, -5982)
+position = Vector2(-5654.71, -5742.94)
 rotation = 0.782052
 scale = Vector2(23.72, 23.72)
 shape = SubResource("RectangleShape2D_w8cgs")

@@ -10,7 +10,6 @@ extends CharacterBody2D
 @export var normalSpeed = 250
 
 var knockback = Vector2.ZERO
-var motion = Vector2.ZERO
 var currentSpeed = normalSpeed
 
 @onready var animPlayer = $AnimationPlayer
@@ -53,5 +52,5 @@ func _on_hurtbox_area_entered(hitbox):
 	var impulse = direction * hitbox.knockbackForce
 	knockback = impulse
 	
-	#Global.instance_scene_on_main()
+	Global.instance_scene_on_main(Global.HIT, global_position)
 	

@@ -87,6 +87,7 @@ func recoil():
 	var direction = get_local_mouse_position()
 	var impulse = direction * -0.01
 	knockback = impulse
+	SignalManager.add_screenshake.emit(1, 50)
 	
 func _on_timer_timeout():
 	canFire = true

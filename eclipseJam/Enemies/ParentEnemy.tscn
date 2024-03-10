@@ -84,7 +84,7 @@ _data = {
 [node name="ParentEnemy" type="CharacterBody2D"]
 scale = Vector2(3.35, 3.35)
 collision_layer = 2
-collision_mask = 10
+collision_mask = 9
 script = ExtResource("1_bnhyf")
 
 [node name="Hitbox" parent="." instance=ExtResource("2_at6tw")]

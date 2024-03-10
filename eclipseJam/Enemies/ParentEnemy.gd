@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var health : int = max_health
 
 #Movement Speed
-@export var normalSpeed = 250
+@export var normalSpeed = 500
 
 var knockback = Vector2.ZERO
 var currentSpeed = normalSpeed

@@ -8,7 +8,7 @@ extends Node2D
 # Minotaur - AOE
 # Medusa - Ranged (hardest)
 
-const TEMP = preload("res://Enemies/ParentEnemy.tscn")
+const PARENT = preload("res://Enemies/ParentEnemy.tscn")
 #const CYCLOPS = preload("res://Enemies/cyclops.tscn")
 #const GHOST = preload("res://Enemies/ghost.tscn")
 #const HARPEE = preload("res://Enemies/harpee.tscn")
@@ -24,11 +24,11 @@ const HEALTH_PICKUP = preload("res://Pickups/healthpickup.tscn")
 @onready var pickupArea = $"Pickup Area"
 @onready var waveText = $CanvasLayer/Label
 
-var WaveOne = {"enemies": [TEMP], "maxEnemies": 5}
-var WaveTwo = {"enemies": [TEMP], "maxEnemies": 15}
-var WaveThree = {"enemies": [TEMP], "maxEnemies": 3}
-var WaveFour = {"enemies": [TEMP], "maxEnemies": 4}
-var WaveFive = {"enemies": [TEMP], "maxEnemies": 5}
+var WaveOne = {"enemies": [PARENT], "maxEnemies": 1}
+var WaveTwo = {"enemies": [PARENT], "maxEnemies": 2}
+var WaveThree = {"enemies": [PARENT], "maxEnemies": 3}
+var WaveFour = {"enemies": [PARENT], "maxEnemies": 4}
+var WaveFive = {"enemies": [PARENT], "maxEnemies": 66}
 
 var pickups = [HEALTH_PICKUP]
 
@@ -108,18 +108,22 @@ func startNextWave():
 	if currentWave == WaveOne:
 		setWave(WaveTwo)
 		waveText.text = "Wave 2"
+		Music.play_song("gameplayLoop2")
 		return
 	if currentWave == WaveTwo:
 		setWave(WaveThree)
 		waveText.text = "Wave 3"
+		Music.play_song("gameplayLoop3")
 		return
 	if currentWave == WaveThree:
 		setWave(WaveFour)
 		waveText.text = "Wave 4"
+		Music.play_song("gameplayLoop4")
 		return
 	if currentWave == WaveFour:
 		setWave(WaveFive)
 		waveText.text = "Wave 5"
+		Music.play_song("gameplayLoopfin")
 		return
 	else:
 		print ("Waves Completed!")
